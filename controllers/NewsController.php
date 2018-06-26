@@ -8,6 +8,8 @@
 
 namespace app\controllers;
 
+use app\controllers\AppController;
+
 
 class NewsController extends AppController
 {
@@ -20,6 +22,8 @@ class NewsController extends AppController
         // получаем одну важную тему
         $model = $connection->createCommand("Select * From core_contents where id_unit=".$this->IdNewsRecords." and is_vis=1 order by sort");
         $data = $model->queryAll();
+        $page=new CPagination(count($data));
+
 
 
         return $this->render("index", compact('data'));
