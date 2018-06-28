@@ -1,7 +1,9 @@
 <?
 use app\controllers\AppController;
+
 //var_dump($data);
-$url="/?=news/view";
+$url="/?r=news/view&id=";
+//var_dump($page);
 ?>
 
 <div class="article_list" style=" ">
@@ -22,19 +24,18 @@ $url="/?=news/view";
         <article>
 
             <div class="news_content">
-                <a href="<?=$url;?>&amp;id=<?=$row[id];?>">
+                <a href="<?=$url."".$row->id;?>">
 
                     <!--Header published-->
-                    <h2><?$row[name];?></h2>
+                    <h2><?=$row->name;?></h2>
                     <!--Header published-->
 
                     <!--Date published-->
-                    <p><time itemprop="datePublished" datetime="<?=$row[date_start];?>"><?=$row[date_start];?></time></p>
+                    <p><time itemprop="datePublished" datetime="<?=$row->date_start;?>"><?=str_replace("-",".",substr($row->date_start,0,10));?></time></p>
                     <!--Date published-->
 
                     <!--Intro published -->
-                    <span class="intro">
-                        <?=$row[intro];?>
+                    <span class="intro"><?=$row->intro;?>
                     </span>
                     <!--Intro published -->
 
@@ -47,14 +48,14 @@ $url="/?=news/view";
                         <!--Просмотры-->
                         <div class="view">
                             <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-                            <div class="content wrap_right"><?=$row[view];?></div>
+                            <div class="content wrap_right"><?=$row->view;?></div>
                         </div>
                         <!--Просмотры-->
 
                         <!--Комментарии-->
                         <div class="comment"> <a itemprop="discussionUrl" href="?comments=1">
                                 <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
-                                <div class="content wrap_right"><?=AppController::getCommentsCount($row[id]);?></div>
+                                <div class="content wrap_right"><?=AppController::getCommentsCount($row->id);?></div>
                             </a> </div>
                         <!--Комментарии-->
 
@@ -69,30 +70,11 @@ $url="/?=news/view";
     </div>
     <!--Новость 1-->
 <?}?>
-
-
     <!--Пагинация новостей-->
-    <div class="article_list_pages">
-        <div class="paginator">
-            <span>1</span>
-            <a href="?module=articles&amp;action=list&amp;rubrics=2&amp;id=0&amp;page=2">2</a>
-            <a href="?module=articles&amp;action=list&amp;rubrics=2&amp;id=0&amp;page=3">3</a>
-            <a href="?module=articles&amp;action=list&amp;rubrics=2&amp;id=0&amp;page=4">4</a>
-            <a href="?module=articles&amp;action=list&amp;rubrics=2&amp;id=0&amp;page=5">5</a>
-            <a href="?module=articles&amp;action=list&amp;rubrics=2&amp;id=0&amp;page=6">...</a>
-            <a href="?module=articles&amp;action=list&amp;rubrics=2&amp;id=0&amp;page=23">23</a>
-            <a href="?module=articles&amp;action=list&amp;rubrics=2&amp;id=0&amp;page=2">...</a>
-            <a href="?module=articles&amp;action=list&amp;rubrics=2&amp;id=0&amp;page=23">»»</a>
-        </div>
-    </div>
+<?
+    echo \yii\widgets\LinkPager::widget([
+    'pagination' => $pages,
+    ]);
+    ?>
     <!--Пагинация новостей-->
-
-
-</div>
-
-
-
-
-
-
 </div>
