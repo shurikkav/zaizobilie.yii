@@ -18,7 +18,7 @@ class NewsController extends AppController
     {
         $this->layout = 'inside2.php';
 
-        $query = News::find()->where(['id_unit' => $this->IdNewsRecords]);
+        $query = News::find()->where(['id_unit' => $this->IdNewsRecords])->orderBy("date_start DESC");
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 10]);
         $data = $query->offset($pages->offset)
@@ -28,12 +28,13 @@ class NewsController extends AppController
         return $this->render("index", compact('data','pages'));
     }
 
-    public function actionView()
+    public function actionView($id)
     {
         $this->layout = 'inside2.php';
-        $id=intval($_REQUEST['id']);
         $query = News::find()->from("core_contents")->where(['id'=>$id]);
         $data = $query->one();
+        $data->view+=1;
+        $data->save();
         $param = array();
         $param['rubrikurl']=$rubrikurl;
         $param['issuesurl']=$issuesurl;
@@ -41,7 +42,7 @@ class NewsController extends AppController
     }
     public function actionBlock()
     {
-        $this->layout = 'index.php';
+        $this->layout = 'inside2.php';
         $connection = \Yii::$app->db;
         // получаем одну важную тему
         $model = $connection->createCommand("Select * From core_contents where id_unit=".$this->IdNewsRecords." and is_main=1 and is_vis=1 order by sort limit 0,".$this->CountNewsInBlock);

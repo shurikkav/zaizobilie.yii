@@ -1,10 +1,13 @@
+<?
+use \app\controllers\AppController;
+?>
 <div class="article_details" style="">
 
 
     <div class="article_header">
         <!--Название раздела-->
         <div id="ulrubrics" class="article_rubrics">
-            <a href="<?=$urlnewslist;?>"><h3>Новости</h3></a>
+            <a href="<?="?r=news/";?>"><h3>Новости</h3></a>
         </div>
         <!--Название раздела-->
     </div>
@@ -39,7 +42,7 @@
         <!--Просмотры-->
         <div class="view">
             <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-            <div class="content wrap_right"><?=$data->view;?></div>
+            <div class="content wrap_right"><?=intval($data->view)+1;?></div>
         </div>
         <!--Просмотры-->
 
@@ -47,7 +50,7 @@
         <div class="comment">
             <a itemprop="discussionUrl" href="?comments=1">
                 <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
-                <div class="content wrap_right"><?=\app\controllers\AppController::getCommentsCount($data->id);?></div>
+                <div class="content wrap_right"><?=AppController::getCommentsCount($data->id);?></div>
             </a>
         </div>
         <!--Комментарии-->
@@ -61,7 +64,7 @@
     <!--Image-->
     <?if(strlen($data->img3)>3){?>
     <div class="atricle_img">
-        <img src="<?=$data->img3;?>" alt="<?=$data->name;?>" class="img3" style="">
+        <img src="/<?=$data->img3;?>" alt="<?=$data->name;?>" class="img3" style="">
     </div>
     <?}?>
     <!--Image-->

@@ -1,0 +1,177 @@
+
+
+@media print {
+.top_header, .to_top {
+	display:none;
+}
+
+.header_content_over {
+	background-color:rgba(255,255,255,0.0);
+}
+
+.header_menu {
+	display:none;
+}
+
+/*Логотип*/
+.logo {
+	margin: 20px 0 0 20px;
+	display:block;
+	width: 80%;
+}
+/*Логотип*/
+
+
+/*Описание логотипа*/
+.logo_discrp {
+	margin: 0 0 0 20px;
+	display:block;
+}
+/*Описание логотипа*/
+
+
+/*Герб*/
+.logo_gerb {
+	margin: 20px 0 0 0;
+	float: right;
+	position:absolute;
+	right:30%;
+}
+/*Герб*/
+
+/*Архив*/
+.archive {
+	float: right;
+	position:absolute;
+	right:20px;
+}
+/*Архив*/
+
+
+/*Поиск*/
+.search {
+	display:none;
+}
+/*Поиск*/
+
+.ads {
+	display:block;
+	width: auto !important;
+	}
+
+/*Section*/
+aside, .right {
+	display:none;
+}
+
+.main, .middle  {
+	display:none;
+}
+
+.main_mobile, .middle_mobile {
+	display: inline-block;
+}
+
+.top_main_middle .article_content {
+	padding-left:0px;
+	padding-right:0px;
+	}
+
+.left_collumn .menu_left {
+	display:none;
+}
+
+
+/*Рубрика*/
+.middle_collumn {
+	padding-right:0px;
+	}
+
+.sys_middle_collumn header {
+	/*width:30% !important;*/
+	width:120% !important;
+	/*left:18%;*/
+	left:0;	
+}
+/*Рубрика*/
+
+
+/*Тема*/
+.sys_top_main {
+	padding-bottom:0px;
+	}
+
+.top_main_item {
+	float:none;
+	width:100%;
+	border-bottom: 1px solid rgba(204,204,204,1.0);
+	padding-right:0px;
+	margin-bottom:20px;
+	}
+/*Тема*/
+
+
+/*Section*/
+
+
+
+
+
+
+
+/*Header*/
+/*Логотип*/
+.logo img{
+	width:50%;
+}
+/*Логотип*/
+
+
+/*Описание логотипа*/
+.logo_discrp{
+	font-size:14px;
+}
+/*Описание логотипа*/
+
+
+/*Герб*/
+.logo_gerb{
+	margin: 20px 0 0 0;
+	float: right;
+	position:absolute;
+	right:20px;
+}
+/*Герб*/
+
+
+/*Архив*/
+.archive {
+	display:none;
+}
+/*Архив*/
+
+/*Header*/
+
+
+
+
+/*Footer*/
+.footer_left, .footer_right {
+	display:block;
+	position:relative;
+    float: none;
+	width:100%;
+}
+
+.footer_menu {
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.footer_menu ul li{
+	display:block;
+	float:none;
+	line-height:30px;
+}
+/*Footer*/
+}

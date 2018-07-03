@@ -1,0 +1,153 @@
+.tabbed_box {
+  width: auto !important;
+}
+
+.tabbed_area {
+  display: inline-block;
+  width: 100%;
+}
+
+.tabbed_area ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  display: inline-block;
+  width: 100%;
+}
+
+.tabbed_area ul li {
+  margin-right: 20px;
+  list-style: none;
+  display: inline-block;
+  width: 20%;
+  float: left;
+  background: rgba(0, 30, 50, 0.0);
+}
+
+.tabbed_area ul li.tab_all {
+  float: right;
+  margin-right: 0;
+  width: 10%;
+}
+
+.tabbed_area ul li.tab_all a {
+  /*float: right;*/
+	background-color: rgba(246,246,246,1);
+  border: none;
+	color: rgba(128, 128, 128, 1.0) !important;
+}
+
+.tabbed_area ul li.tab_all a:hover {
+  /*float: right;*/
+	background-color: rgba(242,242,242,1);
+  border: none;
+	color: rgba(0, 160, 227, 1.0) !important;
+}
+
+.tabs a {
+  padding: 10px 20px;
+  border: 1px solid;
+  border-color: rgba(102, 102, 102, 0.2);
+  border-bottom: rgba(255, 255, 255, 1.0);
+  height: 24px;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+	background-color: rgba(255,255,255,1);
+}
+
+.tabs a:hover {
+	color: rgba(255, 255, 255, 1.0) !important;
+  border-color: rgba(0, 30, 50, 0.6);
+	background-color: rgba(0, 30, 50, 0.6);;
+}
+
+.tabs a.tab_active {
+	color: rgba(255, 255, 255, 1.0) !important;
+  border-color: rgba(0, 30, 50, 0.6);
+  border-bottom: rgba(255, 255, 255, 1.0);
+	background-color: rgba(0, 30, 50, 0.6);;
+}
+
+.tabbed_box .content {
+	display: inline-flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: relative;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 30, 50, 0.6);
+  margin-top: -4px;
+  z-index: 1;
+}
+
+#content_2, #content_3 {
+  display: none;
+}
+
+.tabbed_box .content .public_item {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.tabbed_box .content ul li a:hover small {
+}
+
+.tabbed_box .content p {
+  padding-bottom: 20px;
+}
+
+.tabbed_box .content h2 {
+  display: block;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+	
+  .tabbed_area ul li {
+    margin-right: 0;
+    width: 28%;
+  }
+
+  .tabs h3 {
+    font-size: 16px;
+  }
+
+  .tabbed_area ul li a {
+    height: 18px;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tabs h3 {
+    font-size: 14px;
+  }
+
+  .tabbed_area ul li a {
+    padding: 8px 4px;
+    height: 16px;
+    white-space: nowrap;
+  }
+	
+	.tabbed_box .content h2 {
+		font-size: 14px;
+		word-break: break-all;
+	}
+	
+	.tabbed_box .content .intro p {
+		font-size: 12px;
+		word-break: break-all;
+	}
+}
+
+@media screen and (max-width: 320px) {
+  .tabs h3 {
+    font-size: 12px;
+  }
+
+  .tabbed_area ul li {
+    width: 28%;
+  }
+}

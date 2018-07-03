@@ -1,19 +1,13 @@
 <?
 use app\controllers\AppController;
-
-//var_dump($data);
-$url="/?r=news/view&id=";
-//var_dump($page);
 ?>
 
 <div class="article_list" style=" ">
 
     <div class="article_header">
-        <!--Название рубрики-->
         <div id="ulrubrics" class="article_rubrics">
             <h3>Новости</h3>
         </div>
-        <!--Название рубрики-->
     </div>
 
 
@@ -24,7 +18,7 @@ $url="/?r=news/view&id=";
         <article>
 
             <div class="news_content">
-                <a href="<?=$url."".$row->id;?>">
+                <a href="<?= Yii::$app->urlManager->createUrl(['news/view', 'id' => $row->id]) ?>">
 
                     <!--Header published-->
                     <h2><?=$row->name;?></h2>
@@ -48,7 +42,7 @@ $url="/?r=news/view&id=";
                         <!--Просмотры-->
                         <div class="view">
                             <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-                            <div class="content wrap_right"><?=$row->view;?></div>
+                            <div class="content wrap_right"><?=intval($row->view);?></div>
                         </div>
                         <!--Просмотры-->
 
@@ -57,18 +51,13 @@ $url="/?r=news/view&id=";
                                 <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
                                 <div class="content wrap_right"><?=AppController::getCommentsCount($row->id);?></div>
                             </a> </div>
-                        <!--Комментарии-->
-
+                        <!--/Комментарии-->
                     </div>
                     <!--Статистика-->
                 </footer>
-
             </div>
-
         </article>
-
     </div>
-    <!--Новость 1-->
 <?}?>
     <!--Пагинация новостей-->
 <?
