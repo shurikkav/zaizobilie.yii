@@ -5,6 +5,7 @@ namespace app\controllers;
 
 use yii\web\Controller;
 
+
 class AppController extends Controller
 {
 
@@ -28,6 +29,13 @@ class AppController extends Controller
         }
         return $i;
     }
-
+    function getRubricsNameArticle($id){
+        //echo $id."!!!!";
+        $connection = \Yii::$app->db;
+        $model = $connection->createCommand("Select `name` From core_rubcolumn where `is_vis`=1 AND `id`='".$id."'");
+        $data = $model->queryOne();
+        return $data['name'];
+    }
 }
+
 

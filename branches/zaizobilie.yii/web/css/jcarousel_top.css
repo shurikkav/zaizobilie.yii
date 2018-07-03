@@ -1,0 +1,139 @@
+/************************Лента новостей**********************************/
+
+.top_main_choser .item_image {
+  width: 100%;
+}
+
+.top_main_choser h2 {
+  font-size: 16px;
+  width: 100%;
+}
+
+.top_main li {
+  list-style: none;
+  position: relative;
+}
+
+.top_main ul {
+  padding: 0;
+}
+
+#issues1 {
+  height: 300px;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+#issues1 li {
+  display: none;
+}
+
+/************Карусель******************/
+#issues2 {
+  /*padding: 0 10px !important;*/
+}
+
+#issues2 li {
+  width: 219px;
+  margin-right: 20px;
+  vertical-align: top;
+}
+
+/*
+#issues2 div.paginator {
+	display: none;
+}
+
+#issues3 li span.name, #issues3 li span.date_start, #issues3 li span.stat, #issues3 li span.intro {
+	display: none;
+}
+*/
+.top_main .jcarousel-container {
+  position: relative;
+}
+
+.top_main .jcarousel-clip {
+  width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.top_main .jcarousel-list {
+  position: relative;
+}
+
+.top_main .jcarousel-item {
+  position: relative;
+}
+
+.top_main .jcarousel-item.active {
+  background: url(../img/red_arr_top.png);
+  background-repeat: no-repeat;
+  background-position: center top 10px;
+}
+
+.top_main .jcarousel-prev {
+  width: 32px;
+  height: 32px;
+  background: url('../img/blog_left_over.png') 0 0 no-repeat;
+  position: absolute;
+  top: 110px;
+  /*margin-top: -16px;*/
+  left: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.top_main .jcarousel-prev:hover {
+  background: url('../img/blog_left.png') 0 0 no-repeat;
+}
+
+.top_main .jcarousel-next {
+  width: 32px;
+  height: 32px;
+  background: url('../img/blog_right_over.png') 0 0 no-repeat;
+  position: absolute;
+  top: 110px;
+  /*margin-top: -16px;*/
+  right: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.top_main .jcarousel-next:hover {
+  background: url('../img/blog_right.png') 0 0 no-repeat;
+}
+
+/*laptop version*/
+@media screen and (max-width: 1024px) {
+
+  .top_main .jcarousel-clip {
+    width: 480px;
+  }
+
+  #issues2 li {
+    width: 230px;
+  }
+
+  #issues1 {
+    height: 560px;
+  }
+
+}
+
+/*mobile version*/
+@media screen and (max-width: 768px) {
+
+  .top_main .jcarousel-clip {
+    width: 320px;
+  }
+
+  #issues2 li {
+    width: 160px;
+  }
+
+  #issues1 {
+    height: 560px;
+  }
+
+}

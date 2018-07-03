@@ -9,7 +9,7 @@
 <?
 foreach ($data as $row){
     ?>
-        <li><a href="<?=$row['url'];?>" target="_blank"><img src="<?=$row['img1'];?>" alt="<?=$row['name'];?>"></a></li>
+        <li><a href="<?=$row['url'];?>" target="_blank"><img src="/<?=$row['img1'];?>" alt="<?=$row['name'];?>"></a></li>
 <?      }?>
         </ul>
 </div>

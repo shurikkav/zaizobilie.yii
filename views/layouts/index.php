@@ -28,7 +28,7 @@ AppAsset::register($this);
     <?php $this->head() ?>
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
-    <link rel="alternate" type="application/rss+xml" href="rss.php" title="RSS Новости"/>
+    <link rel="alternate" type="application/rss+xml" href="/rss.php" title="RSS Новости"/>
 
     <!--stylesheet -->
     <link rel="stylesheet" type="text/css" href="/css/font_new.css">
@@ -68,14 +68,16 @@ AppAsset::register($this);
 
     <!--Java scripts -->
     <script src="/js/vendor/jquery-1.8.0.min.js"></script>
+	<script src="/js/jquery.prettyPhoto.js"></script>
     <script src="/js/vendor/jquery.placeholder.js"></script>
     <script src="/js/vendor/jquery.collapsorz.js"></script>
+    <script src="/js/vendor/jquery.jcarousel.min.js"></script>
     <script src="/js/vendor/jquery-ui-1.9.0.custom.min.js"></script>
     <script src="/js/jquery.collapsorz_1.1.min.js"></script>
-    <script src="/js/vendor/jquery.jcarousel.min.js"></script>
     <script src="/js/vendor/chosen.jquery.min.js"></script>
     <script src="/js/jsibox_basic.js"></script>
-    <script src="/js/plugins.js"></script>
+    
+	<script src="/js/plugins.js"></script>
     <script src="/js/selectbox.js"></script>
     <script src="/js/jquery.anythingslider.js"></script>
     <script src="/js/main.js"></script>
@@ -325,7 +327,7 @@ AppAsset::register($this);
             ]);
             NavBar::end();
             ?>
-            !!!<li class="send_mail"><a href="mailto:za.izobilie@yandex.ru" title="Написать письмо" target="_blank"></a></li>
+            <li class="send_mail"><a href="mailto:za.izobilie@yandex.ru" title="Написать письмо" target="_blank"></a></li>
         </ul>
 
         <!--Левое мобильное меню -->
@@ -747,7 +749,7 @@ AppAsset::register($this);
                                     <h2>Уважаемые читатели!</h2>
 
                                     <!--Text published-->
-                                    <span class="intro" style="display:;"><p>Мы рады сообщить вам об открытии сайта газеты «За изобилие». Здесь вы узнаете свежие новости о всех аспектах жизни нашего района. Кроме того, у вас есть возможность дать оценку материалам газеты, задать вопросы и получить на них ответы. Посетителям сайта предоставится возможность посмотреть архив номеров газеты в РDF-формате, подписаться на электронную доставку свежего номера газеты, а также увидеть информацию, по тем или иным причинам не опубликованную в печатном номере газеты.</p></span>
+                                    <span class="intro"><p>Мы рады сообщить вам об открытии сайта газеты «За изобилие». Здесь вы узнаете свежие новости о всех аспектах жизни нашего района. Кроме того, у вас есть возможность дать оценку материалам газеты, задать вопросы и получить на них ответы. Посетителям сайта предоставится возможность посмотреть архив номеров газеты в РDF-формате, подписаться на электронную доставку свежего номера газеты, а также увидеть информацию, по тем или иным причинам не опубликованную в печатном номере газеты.</p></span>
                                 </a>
 
                             </article>
@@ -1707,7 +1709,7 @@ AppAsset::register($this);
                                     <h2>Уважаемые читатели!</h2>
 
                                     <!--Text published-->
-                                    <span class="intro" style="display:;"><p>Мы рады сообщить вам об открытии сайта газеты «За изобилие». Здесь вы узнаете свежие новости о всех аспектах жизни нашего района. Кроме того, у вас есть возможность дать оценку материалам газеты, задать вопросы и получить на них ответы. Посетителям сайта предоставится возможность посмотреть архив номеров газеты в РDF-формате, подписаться на электронную доставку свежего номера газеты, а также увидеть информацию, по тем или иным причинам не опубликованную в печатном номере газеты.</p></span>
+                                    <span class="intro"><p>Мы рады сообщить вам об открытии сайта газеты «За изобилие». Здесь вы узнаете свежие новости о всех аспектах жизни нашего района. Кроме того, у вас есть возможность дать оценку материалам газеты, задать вопросы и получить на них ответы. Посетителям сайта предоставится возможность посмотреть архив номеров газеты в РDF-формате, подписаться на электронную доставку свежего номера газеты, а также увидеть информацию, по тем или иным причинам не опубликованную в печатном номере газеты.</p></span>
                                 </a>
 
                             </article>

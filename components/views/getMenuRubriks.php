@@ -3,7 +3,7 @@
 <div class="menu_left wrap_bottom">
     <ul>
 <?      foreach ($data as $row){?>
-            <li><a href="?module=articles&amp;action=list&amp;rubrics=<?=$row[id];?>&amp;id=0" class="link_name">
+            <li><a href="<?= Yii::$app->urlManager->createUrl(['articles/rubrics/', 'id' => $row[id]]) ?>" class="link_name">
                <span class="h_2 name"><?=$row[name];?></span></a></li>
 <?      }?>
     </ul>

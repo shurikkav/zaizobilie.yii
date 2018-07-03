@@ -1,0 +1,200 @@
+/*Баннеры*/
+.banner {
+	display:none;
+	position:relative;
+	float:none;
+	width:100%;
+	margin:0px;
+    padding:0px;
+}
+
+.banner_placement {
+	display:block;
+	position:relative;
+	width:100%;
+	margin-left:0px;
+	margin-right:0px;
+	background-color:rgba(255,255,255,1);
+	border-bottom:none;
+	}
+
+.top.banner_placement  {
+	margin-bottom:20px;
+	}
+
+.main_banner.banner {
+	width:75%;
+    float:left;
+}
+
+.placement {
+	border-bottom:none;
+	}
+
+
+
+
+
+
+#showBanner {
+	cursor:pointer;
+	}
+
+/*.banner.demo {
+	display:block;
+	}*/
+
+
+
+.banner_content {
+	display:block;
+	position:relative;
+	width:100%;
+	margin:0 auto;
+	cursor:pointer;
+	overflow:hidden;
+	text-align:center;
+	background-color:rgba(153,153,153,1);
+	}
+
+.banner_content img{
+	width:100%;
+	height: auto;
+	}
+
+.banner_content span {
+	display:block;
+	width:100%;
+	font-size:20px;
+	font-weight:700;
+	color:rgba(255,255,255,1);
+	height:60px;
+	position:absolute;
+	top:50%;
+	margin-top:-10px;
+	-webkit-text-shadow: 0 0 40px rgba(0,0,0,0.5);
+	-moz-text-shadow: 0 0 40px rgba(0,0,0,5);
+    text-shadow: 0 0 40px rgba(0,0,0,0.5);
+	}
+
+.banner_980_90, .banner_980_60 {
+	max-width:980px;
+	}
+	
+.banner_728_90 {
+	max-width:728px;
+	}
+
+.banner_468_60 {
+	max-width:468px;
+	}
+
+.banner_234_60 {
+	max-width:234px;
+	}
+
+.banner_234_60 span{
+	font-size:16px;
+	font-weight:300;
+	}
+
+
+
+
+/*Купить баннер*/
+#buyBanner {
+	width:465px;
+	background:#fff;
+	padding:20px;
+	border:1px solid #b6b6b6;
+	box-shadow:0 0 10px #ccc;
+	border-radius:10px;
+	position:fixed;
+	top:100px;
+	left:50%
+	;margin-left:-252px;
+}
+
+#buyBanner h3 {
+	color:#333;
+	font-size:22px;
+	margin-bottom:20px;
+}
+
+#buyBanner table {
+	border-collapse:collapse;
+}
+
+#buyBanner td {
+	padding-bottom:10px;
+	vertical-align:top;
+}
+
+#buyBanner td:first-child {
+	min-width:130px;
+}
+
+#buyBanner td #save {float:left;margin-left:130px;}
+
+#buyBanner input,
+#buyBanner textarea {border:1px solid #b6b6b6 !important;border-radius:5px !important; font-family:arial;font-size:12px;color:#333;padding:3px 5px;box-shadow:0 2px 3px #ddd inset;}
+#buyBanner input {height:15px;width:180px;}
+#buyBanner textarea {resize:none;width:230px;height:80px;}
+/*Купить баннер*/
+
+/*Баннеры*/
+
+
+
+@media screen and (max-width: 1290px) {
+/*.banner_placement {
+	margin-right:20px;
+}*/
+
+}
+
+
+
+/*laptop version*/
+@media screen and (max-width: 1024px) {
+.banner_content span {
+	font-size:18px;
+	font-weight:700;
+	}
+
+.main_banner.banner  {
+	width:50%;
+}
+
+
+
+}
+
+
+
+/*tablet version*/
+@media screen and (max-width: 768px) {
+.banner_content span {
+	font-size:16px;
+	font-weight:700;
+	}
+	
+.main_banner_collumn.banner_placement {
+	margin-left:20px;
+}
+
+.main_banner.banner  {
+	width:100%;
+	float:none;
+}
+}
+
+
+
+/*mobile S version*/
+@media screen and (max-width: 320px) {
+.banner_content span {
+	font-size:14px;
+	font-weight:500;
+	}
+}

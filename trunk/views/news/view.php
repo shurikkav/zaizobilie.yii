@@ -1,0 +1,1 @@
+<b>view news</b>
