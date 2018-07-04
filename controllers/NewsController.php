@@ -12,8 +12,7 @@ class NewsController extends AppController
 {
     public $CountNewsInBlock=3;
     public $IdNewsRecords=32;
-    public $rubrikurl="rubrik";
-    public $issuesurl="issuesur";
+
     public function actionIndex()
     {
         $this->layout = 'inside2.php';
@@ -36,18 +35,16 @@ class NewsController extends AppController
         $data->view+=1;
         $data->save();
         $param = array();
-        $param['rubrikurl']=$rubrikurl;
-        $param['issuesurl']=$issuesurl;
         return $this->render("view",compact('data','param'));
     }
     public function actionBlock()
     {
         $this->layout = 'inside2.php';
-        $connection = \Yii::$app->db;
-        // получаем одну важную тему
-        $model = $connection->createCommand("Select * From core_contents where id_unit=".$this->IdNewsRecords." and is_main=1 and is_vis=1 order by sort limit 0,".$this->CountNewsInBlock);
-        $data = $model->queryAll();
-
+        $query = News::find()->from("core_contents")
+                ->where(['id'=>$id,'id_unit'=>$this->IdNewsRecords, 'is_main'=>'1', 'is_vis'=>'1'])
+                ->orderby('Sort')
+                ->limit($this->CountNewsInBlock);
+        $data = $query->queryAll();
         return $this->render("block",compact('data'));
     }
     public function getRublicsName($id=0){

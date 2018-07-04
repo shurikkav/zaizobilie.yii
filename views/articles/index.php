@@ -1,9 +1,6 @@
 <?
 use app\controllers\AppController;
 
-//var_dump($data);
-$url="/?r=artiles/view&id=";
-//var_dump($page);
 ?>
 
 <div class="article_list" style=" ">
@@ -24,7 +21,7 @@ $url="/?r=artiles/view&id=";
         <article>
 
             <div class="news_content">
-                <a href="<?=$url."".$row->id;?>">
+                <a href="<?= Yii::$app->urlManager->createUrl(['articles/view/', 'id' => $row->id]) ?>">
 
                     <!--Header published-->
                     <h2><?=$row->name;?></h2>

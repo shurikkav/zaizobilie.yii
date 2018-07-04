@@ -3,14 +3,24 @@ use \app\controllers\AppController;
 ?>
 <div class="article_details" style="">
 
-
-    <div class="article_header">
-        <!--Название раздела-->
-        <div id="ulrubrics" class="article_rubrics">
-            <a href="<?="?r=news/";?>"><h3>Новости</h3></a>
-        </div>
-        <!--Название раздела-->
+<div class="article_header">
+    <!--Название рубрики-->
+    <? $namerub=AppController::getRubricsNameArticle($data->rubrics);
+    if(strlen($namerub)>0){?>
+    <div id="ulrubrics" class="article_rubrics">
+        <a href="<?= Yii::$app->urlManager->createUrl(['articles/rubrics/', 'id' => $data->rubrics]) ?>"><h3><?=$namerub;?></h3></a>
     </div>
+    <!--Название рубрики-->
+    <?}?>
+                
+    <?if($data->issues>0){?>
+    <!--Номер выпуска-->
+    <div id="ulissues" class="article_issues">
+        <a href="<?= Yii::$app->urlManager->createUrl(['articles/issues/', 'id' => $data->issues]) ?>"><span class="clear">Выпуск</span> <?=AppController::getRubricsNameArticle($data->issues);?></a>
+    </div>
+    <!--Номер выпуска-->
+    <?}?>
+</div>
 
 
 
@@ -32,7 +42,7 @@ use \app\controllers\AppController;
 
     <!--Дата публикации-->
     <div class="article_date">
-        <time itemprop="datePublished" datetime="<?=$data->date_start;?>"><?=$data->date_start;?></time>
+        <time itemprop="datePublished" datetime="<?=$data->date_start;?>"><?=substr($data->date_start,0,10);?></time>
     </div>
     <!--Дата публикации-->
 

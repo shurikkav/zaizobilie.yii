@@ -56,6 +56,9 @@ $config = [
                 'news/view/<id:\d+>'=>'news/view',
                 'articles/rubrics/<id:\d+>'=>'articles/rubrics',
                 'articles/rubrics/<id:\d+>/page/<page:\d+>'=>'articles/rubrics',
+                'articles/view/<id:\d+>'=>'articles/view',
+                'articles/issue/<id:\d+>'=>'articles/issue',
+                'articles/issues/'=>'articles/issues',
             ],
         ],
         ''

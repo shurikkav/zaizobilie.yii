@@ -1,10 +1,10 @@
 <ul class="main-menu">
     <? foreach ($menuItems as $menuItem){ ?>
         <li>
-            <? if($menuItem[plugin] == ''){ ?>
-                <a href="/pages/<?=$menuItem[id];?>"><?=$menuItem[name];?></a>
+            <? if($menuItem[link] == ''){ ?>
+                <a href="/page/<?=$menuItem[id];?>"><?=$menuItem[name];?></a>
             <? } else { ?>
-                <a href ='<?=$menuItem[plugin];?>' > <?=$menuItem[name];?></a>
+                <a href ='<?=$menuItem[link];?>' > <?=$menuItem[name];?></a>
             <?}?>
 
         </li>
