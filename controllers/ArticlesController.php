@@ -61,8 +61,11 @@ class ArticlesController extends AppController
         // список номеров газеты по выпускам core_rubcolumn
         $this->layout = 'inside2.php';
         $query = Article::find()->select('*')->from('core_rubcolumn')
-                ->where(['!=','pid',0],['=','id_type',25])
+                ->where(['id_type'=> $this->IdTypeIssue, 'is_vis'=>1, ])
+                ->andWhere(['<>','pid',0])
+                ->orderBy(['date'=>SORT_DESC , 'sort'=>SORT_ASC])
                 ;
+                //var_dump($query);
         $countQuery = clone $query;
         $pagesArticle = new Pagination(['totalCount' => $countQuery->count(), 'defaultPageSize' => 10]);
         $data = $query->offset($pagesArticle->offset)

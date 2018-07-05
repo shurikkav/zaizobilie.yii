@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 21.06.2018
- * Time: 12:41
- */
-
 namespace app\components;
 
 use yii\base\Widget;

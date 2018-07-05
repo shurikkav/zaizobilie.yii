@@ -618,15 +618,6 @@ AppAsset::register($this);
     </div>
     <!--Рекламное место 01 баннер 980x60-->
 
-
-
-
-
-
-
-
-
-
     <!-------------------------Мобильная версия статей на странице------------------------------->
 
 
@@ -2171,97 +2162,6 @@ AppAsset::register($this);
 
                 </div>
                 <!--Рубрика 01-->
-
-
-
-
-
-
-                <!--Рекламное место 05 баннер 468_60-->
-                <div class="banner wrap_bottom" style="display:none;">
-                    [BANNER_5]
-                </div>
-                <!--Рекламное место 05 баннер 468_60-->
-
-
-
-
-
-                <!--Рубрика 02-->
-                <div class="top_main_middle">
-
-                    <article>
-
-                        <a href="index_article_list.html">
-                            <!--Image published -->
-                            <div class="item_image">
-                                <!--Header Рубрика-->
-                                <header><h3>Общество</h3></header>
-                                <!--Header Рубрика-->
-                                <span class="image" style="background-image:url(/media/DS_94L.jpg);"><img src="/img/empty_sq.png"></span>
-                            </div>
-                        </a>
-                        <!--Image published -->
-
-                        <div class="article_content">
-                            <a href="index_article.html">
-                                <!--Header published-->
-                                <h2>Областная сетевая акция «Мы – будущее региона»</h2>
-                                <!--Header published-->
-
-                                <!--Date published-->
-                                <p><time itemprop="datePublished" datetime="2014-10-08">2014-10-08</time></p>
-                                <!--Date published-->
-
-                                <!--Intro published -->
-                                <span class="intro"><p>28 февраля 2013 года 110 школ, 4500 активистов детских общественных объединений из 20 муниципальных образований Амурской области в возрасте от 12 до 17 лет приняли участие в областной сетевой акции «Мы - будущее региона».</p></span>
-                                <!--Intro published -->
-                            </a>
-
-                            <footer>
-                                <!--Статистика-->
-                                <div class="stat">
-
-                                    <!--Просмотры-->
-                                    <div class="view">
-                                        <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-                                        <div class="content wrap_right">896</div>
-                                    </div>
-                                    <!--Просмотры-->
-
-                                    <!--Комментарии-->
-                                    <div class="comment">
-                                        <a itemprop="discussionUrl" href="index_article.html">
-                                            <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
-                                            <div class="content wrap_right">243</div>
-                                        </a>
-                                    </div>
-                                    <!--Комментарии-->
-
-                                </div>
-                                <!--Статистика-->
-                            </footer>
-                        </div>
-
-                    </article>
-
-
-                </div>
-                <!--Рубрика 02-->
-
-
-
-
-
-
-                <!--Рекламное место 06 баннер 468_60-->
-                <div class="banner wrap_bottom" style="display:none;">
-                    [BANNER_6]
-                </div>
-                <!--Рекламное место 06 баннер 468_60-->
-
-
-
 
 
 

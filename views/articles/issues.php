@@ -32,6 +32,7 @@ use yii\widgets\LinkPager;
                     <!--Header published--> 
                     <!--Date published-->
                     <p><time itemprop="datePublished" datetime="<?=substr($row->date,0,10);?>"><?=substr($row->date,0,10);?></time></p>
+                    <?if(strlen($row->file)>0){?><p><a href="/<?=$row->file?>" target="_blank">Скачать номер</a></p><?}?>
                     <!--Date published--> 
                 </a>
             </div>

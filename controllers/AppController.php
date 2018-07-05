@@ -35,7 +35,9 @@ class AppController extends Controller
         $data = $model->queryOne();
         return $data['name'];
     }
-
+    function getAutorName($id){
+        return "";
+    }
     
 }
 

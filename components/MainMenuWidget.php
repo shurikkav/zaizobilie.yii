@@ -18,9 +18,7 @@ class MainMenuWidget extends Widget {
     {
 
         $connection = \Yii::$app->db;
-
-        $model = $connection->createCommand("Select id_unit From core_units where `table`='tree'");
-        $treeModuleId = $model->queryOne();
+        $treeModuleId = 24;
 
         $model = $connection->createCommand("Select `id`, `name`, `link` From core_contents where id_unit='".$treeModuleId[id_unit]."' and pid=0 and is_vis=1 order by sort");
         $menuItems = $model->queryAll();
