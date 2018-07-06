@@ -44,15 +44,30 @@ $config = [
             ],
         ],
         'db' => $db,
-/*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false,
             'rules' => [
+                'news/index'=>'news/index',
+                'news/list'=>'news/index',
+                'news/page/<page:\d+>/'=>'news/index',
+                'news/view/<id:\d+>/'=>'news/view',
+                'page/<id:\d+>/'=>'site/page',
+                'articles/rubrics/<id:\d+>/'=>'articles/rubrics',
+                'articles/rubrics/<id:\d+>/page/<page:\d+>/'=>'articles/rubrics',
+                'articles/view/<id:\d+>/'=>'articles/view',
+                'articles/issue/<id:\d+>/'=>'articles/issue',
+                'articles/issues/'=>'articles/issues',
+                'articles/issues/<page:\d+>/'=>'articles/issues',
+                'contact/'=>'site/contact',
+                'contact'=>'site/contact',
+                'login'=>'site/login',
             ],
         ],
         ''
-*/
+
     ],
     'params' => $params,
 ];

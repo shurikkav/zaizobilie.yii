@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 21.06.2018
- * Time: 12:41
- */
-
 namespace app\components;
 
 use yii\base\Widget;
-use yii\db;
+use app\models\News;
 
 class CommentsBlock extends Widget
 {
@@ -18,10 +11,17 @@ class CommentsBlock extends Widget
 
     function run() // Меню рубрики
     {
-        $connection = \Yii::$app->db;
+        $query = News::find()->from("core_contents")
+                ->where(['id_unit'=>$this->IdCommRecords, 'is_vis'=>'1'])
+                ->orderby('sort')
+                ->limit($this->CountCommInBlock);
+        $data = $query->All();
+
+
+       // $connection = \Yii::$app->db;
         // получаем $CountCommInBlock записей с типом $IdCommRecords
-        $model = $connection->createCommand("Select * From core_contents where id_unit=".$this->IdCommRecords." and  is_vis=1 order by sort limit 0,".$this->CountCommInBlock);
-        $data = $model->queryAll();
+        //$model = $connection->createCommand("Select * From core_contents where id_unit=".$this->IdCommRecords." and  is_vis=1 order by sort limit 0,".$this->CountCommInBlock);
+        //$data = $model->queryAll();
 
         return $this->render("CommentsBlock",compact('data'));
     }

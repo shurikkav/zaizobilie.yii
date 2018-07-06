@@ -76,7 +76,7 @@ class InformerValutWidget extends Widget
 
     function getCurs($id=null) {
         $today = $this->downloadCont();
-        $this->today = date("M.d.Y", mktime(0, 0, 0, date("m"), date("d") - 1));
+        $this->today = date("d.m.Y", mktime(0, 0, 0, date("m"), date("d") - 1));
         $est = $this->downloadCont();
         $out = array();
         if(!empty($today)&&count($today)>0) {

@@ -130,8 +130,8 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionPage()
+    public function actionPage($id=0)
     {
-        return $this->render('page/{$id}');
+        return $this->render("page",compact('id'));
     }
 }
