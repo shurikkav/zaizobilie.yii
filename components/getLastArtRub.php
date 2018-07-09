@@ -13,6 +13,8 @@ class getLastArtRub extends Widget
 {
     function run() // Меню рубрики
     {
+        //выполнить эту команду если возникает ошибка с group 
+        //SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
         global $params;
         $query = Article::find()
                 ->select('*')
@@ -23,10 +25,6 @@ class getLastArtRub extends Widget
                 ->limit($params['LastArtRubCount'])
                 ->groupBy("rubrics");
         $data = $query->all();
-        //var_dump($query);
-        //$data = array();
-
-        
         return $this->render("LastArtRub",compact('data'));
     }
 

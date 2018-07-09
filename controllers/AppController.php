@@ -4,6 +4,8 @@ namespace app\controllers;
 
 
 use yii\web\Controller;
+use yii\db\ActiveRecord;
+use yii\web\View;
 
 
 class AppController extends Controller
@@ -37,6 +39,29 @@ class AppController extends Controller
     }
     function getAutorName($id){
         return "";
+    }
+    
+
+    function getMetaTagsContents($id){
+        $query = \app\models\Menu::find()
+                ->select('meta_title, meta_keywords, meta_description')
+                ->from('core_contents')
+                ->where(['id'=> $id, 'is_vis'=>'1']);
+        $data = $query->one();
+        $this->title =$data->meta_title;
+        $this->registerMetaTag =[ 'name' => 'description', 'content' => $data['meta_description'] ];
+        $this->registerMetaTag =[ 'name' => 'keywords', 'content' => $data['meta_keywords'] ] ;
+        //$this->metaTags['keywords'] = $data['meta_keywords'];
+        return $data;
+    }
+    
+    function getMetaTagsRubcolum($id){
+        $query = \app\models\Menu::find()
+                ->select('name, text')
+                ->from('core_rubcolumn')
+                ->where(['id'=> $id, 'is_vis'=>'1']);
+        $data = $query->one();
+        return $data;
     }
     
 }

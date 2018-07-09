@@ -23,6 +23,10 @@ class NewsController extends AppController
         $data = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
+        
+        \yii::$app->view->title="Последние новости газеты За Изобилие";
+        \yii::$app->view->registerMetaTag(['name'=>'description', 'content'=>'Последние новости за изобилие']);
+        \yii::$app->view->registerMetaTag(['name'=>'keywords', 'content'=>'новости, рубрики']);
 
         return $this->render("index", compact('data','pages'));
     }
@@ -35,6 +39,11 @@ class NewsController extends AppController
         $data->view+=1;
         $data->save();
         $param = array();
+     
+        \yii::$app->view->title=$data->meta_title;        
+        \yii::$app->view->registerMetaTag(['name'=>'description', 'content'=>$data->meta_description]);
+        \yii::$app->view->registerMetaTag(['name'=>'keywords', 'content'=>$data->meta_keywords]);
+
         return $this->render("view",compact('data','param'));
     }
     public function actionBlock()

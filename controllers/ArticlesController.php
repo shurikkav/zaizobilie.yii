@@ -25,6 +25,9 @@ class ArticlesController extends AppController
         $data = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
+        \yii::$app->view->title="Статьи газеты За Изобилие";
+        \yii::$app->view->registerMetaTag(['name'=>'description', 'content'=>'Последние статьи за изобилие']);
+        \yii::$app->view->registerMetaTag(['name'=>'keywords', 'content'=>'статьи, рубрики']);
 
         return $this->render("index", compact('data','pages'));
     }
@@ -35,8 +38,10 @@ class ArticlesController extends AppController
         $this->layout = 'inside2.php';
         $query = Article::find()->from("core_contents")->where(['id'=>$id]);
         $data = $query->one();
-        $param = array();
-        return $this->render("view",compact('data','param'));
+        \yii::$app->view->title=$data->meta_title;        
+        \yii::$app->view->registerMetaTag(['name'=>'description', 'content'=>$data->meta_description]);
+        \yii::$app->view->registerMetaTag(['name'=>'keywords', 'content'=>$data->meta_keywords]);
+        return $this->render("view",compact('data'));
     }
     public function actionRubrics($id)
     {
@@ -54,6 +59,10 @@ class ArticlesController extends AppController
         $data = $query->offset($pagesArticle->offset)
             ->limit($pagesArticle->limit)
             ->all();
+        $meta=AppController::getMetaTagsRubcolum($param['id']);
+        \yii::$app->view->title=$meta->name;        
+        \yii::$app->view->registerMetaTag(['name'=>'description', 'content'=>$meta->text]);
+        
         return $this->render("rubrics",compact('data','param','pagesArticle'));
     }
     public function actionIssues()
@@ -71,6 +80,12 @@ class ArticlesController extends AppController
         $data = $query->offset($pagesArticle->offset)
             ->limit($pagesArticle->limit)
             ->all();
+
+
+        \yii::$app->view->title="Архив номеров";        
+        \yii::$app->view->registerMetaTag(['name'=>'description', 'content'=>'Архив газетных номеров "За Изобилие"']);
+
+
         return $this->render("issues",compact('data','pagesArticle'));
     }
 
@@ -86,6 +101,11 @@ class ArticlesController extends AppController
         $data = $query->offset($pagesArticle->offset)
             ->limit($pagesArticle->limit)
             ->all();
+
+        $meta=AppController::getMetaTagsRubcolum($param['id']);
+        \yii::$app->view->title="Выпуск ".$meta->name." газета За Изобилие";        
+        \yii::$app->view->registerMetaTag(['name'=>'description', 'content'=>$meta->text]);
+
         return $this->render("issue",compact('data','param','pagesArticle'));
     }
 }

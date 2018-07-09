@@ -1,5 +1,10 @@
 <?
 use \app\controllers\AppController;
+use \yii\widgets\ActiveForm;
+use \yii\helpers\Html;
+
+
+
 ?>
 <div class="article_details" style="">
 
@@ -102,27 +107,27 @@ use \app\controllers\AppController;
                 <a name="cf"></a>
                 <div id="commtext"></div>
 
-                <form id="commform">
+                <form id="commform0">
+<?php $form = ActiveForm::begin(['id'=>'commform']) ?>
                     <input type="hidden" name="namemod" id="namemodcomm" value="comm">
                     <input type="hidden" name="contid" id="contid" value="97">
-
-
                     <!--Авторизованный пользователь-->
                     <div id="authuser">
-
                         <!--Name-->
                         <div id="namecdiv" class="form_item">
                             <span class="warning_item" style=""></span>
-                            <input type="text" name="name" id="commname" placeholder="Имя" value="" maxlength="30">
-                        </div>
+                            <?/*= Html::activeTextInput($commentsmodel, 'name', ['id'=>'commname', 'placeholder'=>'Имя']) */?>
+                            <!--<input type="text" name="name" id="commname" placeholder="Имя" value="" maxlength="30">-->
+                            <?= $form->field($name, 'name')->textInput();?>
                         <!--Name-->
-
                         <!--E-mail-->
                         <div id="emailcdiv" class="form_item">
                             <span class="warning_item" style="">Некорректный E-mail</span>
                             <input type="text" name="email" id="commemail" placeholder="E-mail" value="" maxlength="30">
+                            <?/*= $form->field($commentsmodel, 'email') */?>
                         </div>
                         <!--E-mail-->
+        
 
                     </div>
                     <!--Авторизованный пользователь-->
@@ -139,19 +144,24 @@ use \app\controllers\AppController;
                         <div id="g-recaptcha" data-onloadcallbackname="onloadCallback" data-verifycallbackname="verifyCallback">
                             <img src="templates/super-mega-template/img/captcha.jpg" height="60px">
                             <!--<div><iframe src="https://www.google.com/recaptcha/api2/anchor?k=6LfNXxgUAAAAACw097yvsEVrNnZ9_D8GLn0fXB4J&amp;co=aHR0cHM6Ly93d3cubm92YXlhZ2F6ZXRhLnJ1OjQ0Mw..&amp;hl=ru&amp;type=image&amp;v=r20171031153338&amp;theme=light&amp;size=normal&amp;cb=ge36y1lwlba1" width="50%" height="78" role="presentation" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 125px; height: 20px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div>-->
+<?/*= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+'captchaAction' => '/site/default/captcha',
+'options' => ['class' => 'form-control'],
+'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-9">{input}</div></div>',
+]) */?>
                         </div>
                     </div>
                     <!--reCCAPTCHA-->
 
-
                     <!--Enter - Reset-->
                     <div class="form_item">
                         <input type="submit" class="button" value="Отправить">
+                        <?/*= Html::submitButton('Отправить', ['class' => 'btn btn-success']) */?>
                         <input type="reset" class="button" value="Очистить">
                     </div>
                     <!--Enter - Reset-->
-
                 </form>
+<?php ActiveForm::end() ?>
             </div>
 
 

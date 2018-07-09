@@ -67,6 +67,11 @@ class SiteController extends Controller
         // получаем одну важную тему
         $model = $connection->createCommand("Select * From core_contents where is_main=1 and is_vis=1 order by sort desc");
         $siteparam = $model->queryOne();
+
+        \yii::$app->view->title=$siteparam->meta_title;        
+        \yii::$app->view->registerMetaTag(['name'=>'description', 'content'=>$siteparam->meta_description]);
+        \yii::$app->view->registerMetaTag(['name'=>'keywords', 'content'=>$siteparam->meta_keywords]);
+        
         return $this->render('index', compact('siteparam'));
     }
 

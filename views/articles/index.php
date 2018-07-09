@@ -1,6 +1,8 @@
 <?
 use app\controllers\AppController;
 
+
+
 ?>
 
 <div class="article_list" style=" ">
