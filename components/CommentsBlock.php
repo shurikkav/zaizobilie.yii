@@ -17,12 +17,6 @@ class CommentsBlock extends Widget
                 ->limit($this->CountCommInBlock);
         $data = $query->All();
 
-
-       // $connection = \Yii::$app->db;
-        // получаем $CountCommInBlock записей с типом $IdCommRecords
-        //$model = $connection->createCommand("Select * From core_contents where id_unit=".$this->IdCommRecords." and  is_vis=1 order by sort limit 0,".$this->CountCommInBlock);
-        //$data = $model->queryAll();
-
         return $this->render("CommentsBlock",compact('data'));
     }
 

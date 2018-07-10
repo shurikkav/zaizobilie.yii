@@ -3348,7 +3348,7 @@ AppAsset::register($this);
         <li><a href="index_subscribe.html"><img src="/img/icon_subscribe.svg" alt="Подписаться на новости">Подписаться на новости</a></li>
       </ul>
     </div>
-    <!--Подписка-->
+        <!--/Подписка-->
     
     
     
@@ -3437,7 +3437,7 @@ AppAsset::register($this);
       
       
     </article>
-    <!--Форум-->
+    <!--/Форум-->
 		
 		
 		
@@ -3476,35 +3476,7 @@ AppAsset::register($this);
   </aside>
   <!--Левая колонка-->
   
-  
-  
 
-
-  <!--Рекламное место 03 баннер 728x90-->
-  
-  <!--Рекламное место 03 баннер 728x90-->
-
-
-
-
-
-  <!--Новости от Инфорос-->
-  
-  <!--Новости от Инфорос-->
-
-  
-  
-  
-  <!--Рекламное место 04 баннер 728x90-->
-  
-	<!--Рекламное место 04 баннер 728x90-->
-  
-  
-  
-  
-  
-  
-  
   <!--Средняя колонка-->
   <div class="middle">
     <div class="middle_collumn wrap_bottom">
@@ -3514,17 +3486,13 @@ AppAsset::register($this);
               <?=$content;?>
               </article>
             </div>
-	<!--Рубрика 01-->
+            <!--Рубрика 01-->
             <?
             // виджет последние статьи рубрик
             use app\components\getLastArtRub;
             echo getLastArtRub::widget();
             ?>
-        <!--/Рубрика 01-->
-            
-            
-            
-            
+            <!--/Рубрика 01-->
             
             
             <!--Рекламное место 05 баннер 468_60-->
@@ -3539,10 +3507,7 @@ AppAsset::register($this);
             
 
 						
-						
-						
-						
-						<!--Топ статей-->
+							<!--Топ статей-->
 						<div class="top_main_middle top_articles">
 							
 							<!--Header Топ статей-->

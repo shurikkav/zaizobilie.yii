@@ -71,7 +71,7 @@ use \yii\helpers\Html;
         <!--Комментарии-->
 
     </div>
-    <!--Статистика-->
+    <!--/Статистика-->
 
 
 
@@ -82,7 +82,7 @@ use \yii\helpers\Html;
         <img src="/<?=$data->img3;?>" alt="<?=$data->name;?>" class="img3" style="">
     </div>
     <?}?>
-    <!--Image-->
+    <!--/Image-->
 
     <div class="article_text"><?=$data->text;?>
     </div>
@@ -95,7 +95,7 @@ use \yii\helpers\Html;
 
         <div id="print" class="atricle_print" style="cursor:pointer;"><img src="/img/print.png" alt="Распечатать" width="25" height="25"></div>
     </div>
-    <!--Поделиться в соцсетях-->
+    <!--/Поделиться в соцсетях-->
 
 
     <!--Комментарии к новости-->
