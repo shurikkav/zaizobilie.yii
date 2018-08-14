@@ -3858,7 +3858,7 @@ AppAsset::register($this);
       
       
       <header class="header_item">
-      <h4>Каталог предприятий</h4>
+      <h4>Каталог предприятий </h4>
       </header>
       
       <!--Catalog item 01-->
@@ -3968,50 +3968,25 @@ AppAsset::register($this);
     
       <header class="header_item">
         <h4>Голосование</h4>
-        <script type="text/javascript">function pushVote(obj) {var id = obj.find("input").val();var val = obj.find("input[name=vote]:checked").val();values = {id: id, vote: val};var html = "";$.ajax({url: "/?voted=1",type: "POST",data: values,context: document.body}).done(function(msg) {html = msg;});obj.html(html);}</script>
+        <script type="text/javascript">
+            function pushVote(obj)
+            {var id = obj.find("input").val();
+             var val = obj.find("input[name=vote]:checked").val();
+             values = {id: id, vote: val};
+             var html = "";
+             $.ajax({url: "/?voted=1",type: "POST",data: values,context: document.body})
+                 .done(function(msg) {html = msg;});obj.html(html);}
+        </script>
       </header>
       
       
       <div class="public_item">
-        
-        <article>
-        
-          <!--Header published-->
-          <div class="questvote">
-          <h2>Оцените наш новый супер адаптивный, супер респонсивный, супер удобный дизайн:</h2>
+          <div class="poll block">
+          <?
+          use app\components\VoteWidget;
+          echo VoteWidget::widget();
+          ?>
           </div>
-          
-          <div class="voteformstyle">
-          <form name="vote" action="/?voted=1" method="POST" onsubmit="pushVote($(this)); return false; ">
-            <input type="hidden" name="id" class="vote_id" value="1">
-            
-            <div class="form_item">
-            <input type="radio" name="vote" value="2">
-            <label>Я доволен</label>
-            </div>
-            
-            
-            <div class="form_item">
-            <input type="radio" name="vote" value="3">
-            <label>Отношусь нейтрально</label>
-            </div>
-        
-            
-            <div class="form_item">
-            <input type="radio" name="vote" value="4">
-            <label>Недоволен</label>
-            </div>
-            
-            <div class="form_item">
-            <input type="radio" name="vote" value="5">
-            <label>Очень недоволен</label>
-            </div>
-            
-            <input class="button" type="submit" value="Голосовать">
-          </form>
-          </div>
-        </article>  
-      
       </div>      
       
       

@@ -371,8 +371,19 @@ AppAsset::register($this);
 <!--Поиск-->
 
 <!--Рекламное место 01 баннер 980x90-->
-<div class="banner" style="display:none;">
-    [BANNER_1]
+<div class="banner" style="display:block;">
+    <?
+
+
+    // через класс
+    use app\models\Banner;
+    $banner1= new Banner();
+    echo $banner1->getBanner(1);
+    // или через виджет
+    use app\components\BannerWidget;
+    echo BannerWidget::widget(array("zone"=>"1"));
+
+    ?>
 </div>
 <!--Рекламное место 01 баннер 980x90-->
 
@@ -382,19 +393,10 @@ AppAsset::register($this);
     <div class="top_header">
         <div class="rate_top">
             <!--Архив-->
-            <div class="archive">
-                <form id="myform" action="?module=number&action=list" method="post">
-                    <div class="archive-head">Архив</div>
-                    <select id="nom_year" class="combobox" style='margin-top:5px;'>
-                        <option value=0></option>
-                        {ARHIVE_YEARS}
-                    </select>
-                    <select style="margin-left:1px;" id="number" class="combobox">
-                        <option value="0"></option>
-                        {ARHIVE_NUMBERS}
-                    </select>
-                </form>
-
+            <div class="archive" id="app">
+                <?
+				echo $this->render('kurs');
+				?>
             </div>
             <!--Архив-->
             <!--Панель версии для слабовидящих-->
@@ -614,7 +616,10 @@ AppAsset::register($this);
 
     <!--Рекламное место 01 баннер 980x60-->
     <div class="banner" style="display:none;">
-        [BANNER_1]
+       <?
+        $banner1= new Banner();
+        echo $banner1->getBanner(1);
+        ?>
     </div>
     <!--Рекламное место 01 баннер 980x60-->
 
@@ -1200,11 +1205,9 @@ AppAsset::register($this);
 
                 <!--Рекламное место 05 баннер 468_60-->
                 <div class="banner wrap_bottom" style="display:none;">
-                    <div class="banner_placement">
-                        <div id="banner_5" class="banner_content banner_468_60">
-                            <img src="/img/banner_468_60.jpg" alt="Рекламный баннер 468_60 px 05"> <span>Рекламный баннер 468x60 px 05</span>
-                        </div>
-                    </div>
+                    <? $banner5= new Banner();
+                    echo $banner5->getBanner(5);
+                    ?>
                 </div>
                 <!--Рекламное место 05 баннер 468_60-->
 
@@ -1281,11 +1284,10 @@ AppAsset::register($this);
 
                 <!--Рекламное место 06 баннер 468_60-->
                 <div class="banner wrap_bottom" style="display:none;">
-                    <div class="banner_placement">
-                        <div id="banner_6" class="banner_content banner_468_60">
-                            <img src="/img/banner_468_60.jpg" alt="Рекламный баннер 468_60 px 06"> <span>Рекламный баннер 468x60 px 06</span>
-                        </div>
-                    </div>
+                    <? $banner6= new Banner();
+                    echo $banner6->getBanner(6);
+                    ?>
+
                 </div>
                 <!--Рекламное место 06 баннер 468_60-->
 
@@ -1363,11 +1365,10 @@ AppAsset::register($this);
 
                 <!--Рекламное место 07 баннер 468_60-->
                 <div class="banner wrap_bottom" style="display:none;">
-                    <div class="banner_placement">
-                        <div id="banner_7" class="banner_content banner_468_60">
-                            <img src="/img/banner_468_60.jpg" alt="Рекламный баннер 468_60 px 07"> <span>Рекламный баннер 468x60 px 07</span>
-                        </div>
-                    </div>
+                    <? $banner7= new Banner();
+                    echo $banner7->getBanner(7);
+                    ?>
+
                 </div>
                 <!--Рекламное место 07 баннер 468_60-->
 
@@ -1445,11 +1446,9 @@ AppAsset::register($this);
 
                 <!--Рекламное место 08 баннер 468_60-->
                 <div class="banner wrap_bottom" style="display:none;">
-                    <div class="banner_placement">
-                        <div id="banner_8" class="banner_content banner_468_60">
-                            <img src="/img/banner_468_60.jpg" alt="Рекламный баннер 468_60 px 08"> <span>Рекламный баннер 468x60 px 08</span>
-                        </div>
-                    </div>
+                    <? $banner8= new Banner();
+                    echo $banner8->getBanner(8);
+                    ?>
                 </div>
                 <!--Рекламное место 08 баннер 468_60-->
 
@@ -1575,8 +1574,10 @@ AppAsset::register($this);
 
 
             <!--Рекламное место 08 баннер 234_60-->
-            <div class="banner wrap_bottom" style="display:none;">
-                [BANNER_8]
+            <div class="banner wrap_bottom" style="display:block;">
+                <? $banner8= new Banner();
+                echo $banner8->getBanner(8);
+                ?>
             </div>
             <!--Рекламное место 08 баннер 234_60-->
 
@@ -1605,8 +1606,10 @@ AppAsset::register($this);
 
 
             <!--Рекламное место 09 баннер 234_60-->
-            <div class="banner wrap_bottom" style="display:none;">
-                [BANNER_9]
+            <div class="banner wrap_bottom" style="display:block;">
+                <? $banner9= new Banner();
+                echo $banner9->getBanner(9);
+                ?>
             </div>
             <!--Рекламное место 09 баннер 234_60-->
 
@@ -2304,7 +2307,10 @@ AppAsset::register($this);
                 <header class="header_item">
                     <h4>Каталог предприятий</h4>
                 </header>
-
+                <?
+                use app\components\CatalogFirm;
+                //echo CatalogFirm::getRubrikCatalogList(10,"CatalogFirm");
+                ?>
                 {catRubrics}
 
                 <footer style="display: block;">
@@ -2320,15 +2326,16 @@ AppAsset::register($this);
 
             <!--Голосование-->
             <article class="aside_item vote wrap_bottom">
-
                 <header class="header_item">
                     <h4>Голосование</h4>
-                    <script type="text/javascript">function pushVote(obj) {var id = obj.find("input").val();var val = obj.find("input[name=vote]:checked").val();values = {id: id, vote: val};var html = "";$.ajax({url: "/?voted=1",type: "POST",data: values,context: document.body}).done(function(msg) {html = msg;});obj.html(html);}</script>
                 </header>
 
                 <div class="public_item">
                     <div class="poll block">
-                        <vote>
+                        <?
+                        use app\components\VoteWidget;
+                        echo VoteWidget::widget();
+                        ?>
                     </div>
                 </div>
 
@@ -2339,10 +2346,11 @@ AppAsset::register($this);
 
             <!--Вопрос ответ-->
             <article class="aside_item wrap_bottom">
-                <header class="header_item">
-                    <h4>Вопрос-ответ</h4><a href="index_question_answer_list.html" class="see_all">Все</a>
-                </header>
-                <qa>
+                    <?
+                    use app\components\QuestionAnswer;
+                    echo QuestionAnswer::widget(array("limit"=>"3"));
+                    ?>
+
             </article>
             <!--Вопрос ответ-->
 

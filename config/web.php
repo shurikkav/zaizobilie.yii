@@ -2,6 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$dbCatalog = require __DIR__ . '/db_catalog.php';
 
 $config = [
     'id' => 'basic',
@@ -44,6 +45,7 @@ $config = [
             ],
         ],
         'db' => $db,
+        'dbCatalog' => $dbCatalog,
 
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -64,6 +66,8 @@ $config = [
                 'contact/'=>'site/contact',
                 'contact'=>'site/contact',
                 'login'=>'site/login',
+                'subscibe/index'=>'subscibe/index',
+                'subscibe/unsubscibe'=>'subscibe/unsubscibe',
             ],
         ],
         ''
