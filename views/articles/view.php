@@ -118,7 +118,7 @@ use \yii\helpers\Html;
                             <span class="warning_item" style=""></span>
                             <?/*= Html::activeTextInput($commentsmodel, 'name', ['id'=>'commname', 'placeholder'=>'Имя']) */?>
                             <!--<input type="text" name="name" id="commname" placeholder="Имя" value="" maxlength="30">-->
-                            <?= $form->field($name, 'name')->textInput();?>
+                            <?/*= $form->field($name, 'name')->textInput();*/?>
                         <!--Name-->
                         <!--E-mail-->
                         <div id="emailcdiv" class="form_item">

@@ -33,7 +33,18 @@ $config = [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
+            /*'messageConfig' => [
+                'charset' => 'UTF-8',
+            ],
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.google.com',
+                'username' => 'cameshopru@gmail.com',
+                'password' => 'K12a02v80',
+                'port' => '587',
+            ],*/
+
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -67,7 +78,10 @@ $config = [
                 'contact'=>'site/contact',
                 'login'=>'site/login',
                 'subscibe/index'=>'subscibe/index',
-                'subscibe/unsubscibe'=>'subscibe/unsubscibe',
+                'subscibe/add'=>'subscibe/add',
+                'subscibe/edit'=>'subscibe/edit',
+                'subscibe/delete'=>'subscibe/delete',
+                'subscibe/activation'=>'subscibe/activation',
             ],
         ],
         ''

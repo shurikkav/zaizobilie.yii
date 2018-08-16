@@ -8,14 +8,16 @@ use yii\widgets\ActiveForm;
 
     <div class="article_header">
         <div id="ulrubrics" class="article_rubrics">
-            <h3>Подписка</h3>
+            <h1>Подписка</h1>
         </div>
     </div>
+    <h2>Подписаться на рассылку</h2>
+
 <?php
 
 $form = ActiveForm::begin([
     'id' => 'subcribe-form',
-    'action' => '/subscribe/update',
+    'action' => '/subscribe/add',
     'options' => [
         'class' => 'form-subscribe',
         'enctype' => 'multipart/form-data'
@@ -32,12 +34,54 @@ foreach($dataSubscribeModuls as $item){
 echo $form->field($modelSubFrom, 'param[]')->checkboxList($mass)
 ?>
     <div class="form-group">
-        <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton('Подписаться', ['class' => 'btn btn-primary']) ?>
     </div>
 
-<?php ActiveForm::end();
+<?php ActiveForm::end();?>
 
 
-?>
+
+<hr>
+<h2>Изменить рассылку</h2>
+    <?php
+    $form = ActiveForm::begin([
+        'id' => 'subcribe-form-edit',
+        'action' => '/subscribe/edit',
+        'options' => [
+            'class' => 'form-subscribe',
+            'enctype' => 'multipart/form-data'
+        ]
+    ]);
+    echo $form->field($modelSubFrom, 'email');
+
+    ?>
+    <div class="form-group">
+        <?= Html::submitButton('Изменить подписку', ['class' => 'btn btn-primary']) ?>
+    </div>
+
+    <?php ActiveForm::end();?>
+
+
+
+    <hr>
+    <h2>Отписаться</h2>
+
+    <?php
+    $form = ActiveForm::begin([
+    'id' => 'subcribe-form-delete',
+    'action' => '/subscribe/delete',
+    'options' => [
+    'class' => 'form-subscribe',
+    'enctype' => 'multipart/form-data'
+    ]
+    ]);
+    echo $form->field($modelSubFrom, 'email');
+
+    ?>
+    <div class="form-group">
+        <?= Html::submitButton('Отписаться', ['class' => 'btn btn-primary']) ?>
+    </div>
+
+    <?php ActiveForm::end();?>
 
 </div>

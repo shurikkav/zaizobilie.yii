@@ -30,7 +30,7 @@ class SubscribeForm extends Model
     {
         return [
             // name, email, subject и body атрибуты обязательны
-            [['name', 'email', 'param'], 'required'],
+            [['name', 'email', 'param'], 'safe'],
 
             // атрибут email должен быть правильным email адресом
             ['email', 'email'],

@@ -18,7 +18,7 @@ if(intval($_POST["id"])>0 && intval($_POST["vote"])>0 ){
     $id=intval($_POST["id"]);
     $ans=intval($_POST["vote"]);
 
-    var_dump($connection);
+    //var_dump($connection);
     //$model = $connection->createCommand("UPDATE  `core_votes` SET  `votes` = votes + 1 WHERE  `id` =$ans AND `pid`=$id");
     //$data = $model->queryAll();
 
