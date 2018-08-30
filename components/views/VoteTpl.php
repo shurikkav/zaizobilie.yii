@@ -6,8 +6,9 @@
     <!-- END: QUESTION -->
 
     <!-- BEGIN: FORM -->
-    <form name='vote' action='{ACTIONURL}' method='POST' onsubmit='pushVote($(this)); return false; '>
+    <form name='vote' id='vote{VOTEID}' action='{ACTIONURL}' method='POST' {ONSUBMIT}>
     <input type='hidden' name='id' class='vote_id' value='{VOTEID}' />
+
     <ul>
         <!-- BEGIN: VOTEVALUE -->
         <li><input type='radio' name='vote' class='radio_item' value='{ANSWERID}'><label>{ANSWERTEXT}</label></li>
@@ -20,14 +21,14 @@
 
     <!-- BEGIN: RESULTS -->
     <ul>
-        <!-- BEGIN: RETULTITEM -->
+        <!-- BEGIN: VOTEVALUE -->
         <li>{ANSWERTEXT}: {ANSWERCOUNT} - {ANSWERPROC}% <br/>
-            <div style='width:{$pp}px; background:{$this->backgrounds[$i]}; height:2px;' class='vote_line'></div>
+            <div style='width:{ANSWERPROCW}px; background:{ANSWERBG}; height:{ANSWERPROCH}px;' class='vote_line'></div>
         </li>
-        <!-- END: RETULTITEM -->
+        <!-- END: VOTEVALUE -->
     </ul>
     <p>Проголосовало: {TOTALVOTE}</p>
     <!-- END: RESULTS -->
 </div>
 <br/>
-<!-- BEGIN: MAIN -->
+<!-- END: MAIN -->

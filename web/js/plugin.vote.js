@@ -5,13 +5,14 @@ function pushVote(obj) {
 	values = {id: id, vote: val};
 	var html = "";
 	$.ajax({
-		  url: "/voted.php",
+		  url: "/vote/savevoted",
 		  type: 'POST',
 		  data: values,
 		  context: document.body
 		}).done(function(msg) {
 			html = msg;
-			alert(html);
+			obj.html(html);
 		});
-		obj.html(html);
+	    obj.html(html);
+
 }

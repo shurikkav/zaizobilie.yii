@@ -3,13 +3,57 @@
 namespace app\controllers;
 
 
+use app\models\Comments;
+use Codeception\Step\Comment;
 use yii\web\Controller;
 use yii\db\ActiveRecord;
 use yii\web\View;
+use Yii;
 
 
 class AppController extends Controller
 {
+
+    public function getUserProfile($id_user){
+
+        $data = Yii::$app->db->createCommand('Select * from core_users where `id_user`='.$id_user.'')->queryOne();
+        if(count($data)>0) {
+            $param["name"] =$data["name"];
+            $param["email"] =$data["email"];
+            $param["thumbnail"] =$data["thumbnail"];
+            return $param;
+        }
+        else {return "";}
+    }
+
+    public function AddUserComments($name,$email)
+    {
+        Yii::$app->db->createCommand()
+            ->insert('core_users', [
+                'name' => $name,
+                'email' => $email,
+                'thumbnail'=>'',
+                'photo'=>'',
+                'birthday'=>'12.02.2013',
+                'phone'=>'0',
+                'mobile'=>'0',
+                'fax'=>'0',
+                'url'=>'0',
+                'icq'=>'0',
+                'skype'=>'0',
+                'facebook'=>'0',
+                'vkontakte'=>'0',
+                'twitter'=>'0',
+                'login'=>'',
+                'password'=>'',
+                'domain'=>'',
+                'id_group'=>'0',
+                'theme'=>'0',
+                'sort'=>'1',
+                'is_vis'=>'1',
+            ])->execute();
+
+    }
 
 
     function getCommentsCount($id,$i=0) // Кол-во комментариев
@@ -20,12 +64,12 @@ class AppController extends Controller
         $idcomments=41;
         $model = $connection->createCommand("Select id From core_contents where `is_vis`=1 AND `id_unit`='".$idcomments."' AND `pid`='".$id."' order by `date` DESC");
         $data = $model->queryAll();
-
+        $i=0;
         if(count($data)>0&&!empty($data)) {
             foreach($data as $dat) {
                 if($dat['id']>0) {
                     $i++;
-                    $i=$this->getCommentsCount($dat['id'],$i);
+                    $i=AppController::getCommentsCount($dat['id'],$i);
                 }
             }
         }

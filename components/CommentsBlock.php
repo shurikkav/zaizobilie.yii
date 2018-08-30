@@ -1,6 +1,7 @@
 <?php
 namespace app\components;
 
+use app\models\Comments;
 use yii\base\Widget;
 use app\models\News;
 
@@ -11,7 +12,7 @@ class CommentsBlock extends Widget
 
     function run() // Меню рубрики
     {
-        $query = News::find()->from("core_contents")
+        $query = Comments::find()->from("core_contents")
                 ->where(['id_unit'=>$this->IdCommRecords, 'is_vis'=>'1'])
                 ->orderby('sort')
                 ->limit($this->CountCommInBlock);

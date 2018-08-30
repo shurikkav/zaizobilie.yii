@@ -6,6 +6,8 @@ use yii\db;
 use app\models\Vote;
 
 class VoteWidget extends Widget {
+
+    public $backgrounds = array("blue", "green", "red", "yellow","grey", "orange", "black");
     public $param;
     public $vote = array();
     public $is_main;
@@ -19,11 +21,12 @@ class VoteWidget extends Widget {
         //if($this->param === null){$this->param='Menu';}
     }
 
+    // получаем массив с данными голосования если есть активное голосование
     public function getVote()
     {
        if($this->is_block==false && $this->is_main==false){$this->is_main=true;}
         if($this->is_main){$moduleis="is_main";}else{$moduleis="is_block";}
-
+        // ищем активное голосование
         $query = Vote::find()
             ->from(Vote::tableName())
             ->select("*")
@@ -33,11 +36,15 @@ class VoteWidget extends Widget {
 
         $result = $query->All();
 
+        // нет активного голосования - возвращаемся
         if (count($result)==0) return false;
+
+        // есть голосование - получаем вопрос
         for ($i=0; $i<count($result); $i++) {
             $this->vote[$i] = array("id"=>(int)$result[$i]["id"],"question"=>$result[$i]["title"]);
         }
 
+        // есть голосование - получаем ответы
         for ($i=0; $i<count($this->vote); $i++) {
 
             $query = Vote::find()
@@ -53,65 +60,22 @@ class VoteWidget extends Widget {
             }
             $this->vote[$i]['ans'] = $a;
         }
-
+        // возвращаем массив с данными
         return true;
     }
 
-    public function getVoteById($id) {
 
-       if($this->is_block==false && $this->is_main==false){$this->is_main=true;}
-        if($this->is_main){$moduleis="is_main";}else{$moduleis="is_block";}
-
-        $query = Vote::find()
-            ->from(Vote::tableName())
-            ->select("*")
-            ->where(['is_vis'=>'1', 'id'=>'$id']);
-
-        $result = $query->All();
-
-        if (count($result)==0) return false;
-        for ($i=0; $i<count($result); $i++) {
-            $this->vote[$i] = array("id"=>(int)$result[$i]["id"],"question"=>$result[$i]["title"]);
-        }
-
-        for ($i=0; $i<count($this->vote); $i++) {
-
-            $query = Vote::find()
-                ->from(Vote::tableName())
-                ->select("*")
-                ->where(['is_vis'=>'1', 'pid'=>$this->vote[$i]['id']])
-                ->orderby('sort');
-            $ans = $query->All();
-
-            $a = array();
-            foreach ($ans as $row) {
-                $a[] = array("id"=>$row['id'],"text"=>$row['title'],"ans"=>$row['votes']);
-            }
-            $this->vote[$i]['ans'] = $a;
-        }
-        return true;
-    }
-
+    // записать голос в базу
     public function voted($id,$ans) {
-        $query = Vote::find()
-            ->from(Vote::tableName())
-            ->select("*")
-            ->where(['is_vis'=>'1', 'pid'=>$id,'id'=>$ans])
-            ->orderby('id');
-        $result = $query->All();
-        echo "$id-$ans<br>";
-        //var_dump($result);
 
-
-/*
-
-  */
+        $connection = \Yii::$app->db;
+        $connection->createCommand("UPDATE ".Vote::tableName()." SET  `votes` = votes+1 WHERE   `id`=$ans AND `pid`=$id ")->execute();
     }
 
 
     public function load() {
 
-
+        // если логосование состоялось и переданы данные
         if (isset($_GET['voted']) && ($_GET['voted'] == '1')) {
 
             echo "!!! ";
@@ -153,8 +117,8 @@ class VoteWidget extends Widget {
         if ($this->getVote()) {
             $pathJs=$this->pathJs;
             $vote=$this->vote;
-
-            echo  $this->render('VoteWidget', compact('vote','pathJs'));
+            $backgrounds=$this->backgrounds;
+            echo  $this->render('VoteWidget', compact('vote','pathJs','backgrounds'));
         }
 
     }

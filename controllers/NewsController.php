@@ -39,8 +39,9 @@ class NewsController extends AppController
         $data->view+=1;
         $data->save();
         $param = array();
-     
-        \yii::$app->view->title=$data->meta_title;        
+
+
+        \yii::$app->view->title=$data->meta_title;
         \yii::$app->view->registerMetaTag(['name'=>'description', 'content'=>$data->meta_description]);
         \yii::$app->view->registerMetaTag(['name'=>'keywords', 'content'=>$data->meta_keywords]);
 

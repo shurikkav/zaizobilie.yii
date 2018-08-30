@@ -1,5 +1,8 @@
 <?
 use \app\controllers\AppController;
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
+use yii\captcha\Captcha;
 ?>
 <div class="article_details" style="">
 
@@ -90,58 +93,21 @@ use \app\controllers\AppController;
             <div id="commentsform" class="article_commentsform"> <a name="cp"></a>
                 <h3>Комментарии</h3>
                 <a name="cf"></a>
-                <div id="commtext"></div>
+                <div id="commtext">
 
-                <form id="commform">
-                    <input type="hidden" name="namemod" id="namemodcomm" value="comm">
-                    <input type="hidden" name="contid" id="contid" value="97">
+<?php
+// активируем модель комментарий и формы комментарий
+\app\models\CommentsForm::saveCommentsFormInBD();
+echo \app\models\Comments::listCommentsForId($data->id);
+?>
+                </div>
 
+<?php
+// показываем форму добавления
+echo \app\models\CommentsForm::getFormComments($data->id, "/news/view/");
 
-                    <!--Авторизованный пользователь-->
-                    <div id="authuser">
+?>
 
-                        <!--Name-->
-                        <div id="namecdiv" class="form_item">
-                            <span class="warning_item" style=""></span>
-                            <input type="text" name="name" id="commname" placeholder="Имя" value="" maxlength="30">
-                        </div>
-                        <!--Name-->
-
-                        <!--E-mail-->
-                        <div id="emailcdiv" class="form_item">
-                            <span class="warning_item" style="">Некорректный E-mail</span>
-                            <input type="text" name="email" id="commemail" placeholder="E-mail" value="" maxlength="30">
-                        </div>
-                        <!--E-mail-->
-
-                    </div>
-                    <!--Авторизованный пользователь-->
-
-
-                    <!--Text-->
-                    <div id="commmessagediv" class="form_item">
-                        <textarea name="message" rows="10" cols="50" placeholder="Напишите ваши мысли о публикации" id="commmessage"></textarea>
-                    </div>
-                    <!--Text-->
-
-                    <!--reCCAPTCHA-->
-                    <div id="commcaptchadiv" class="form_item">
-                        <div id="g-recaptcha" data-onloadcallbackname="onloadCallback" data-verifycallbackname="verifyCallback">
-                            <img src="templates/super-mega-template/img/captcha.jpg" height="60px">
-                            <!--<div><iframe src="https://www.google.com/recaptcha/api2/anchor?k=6LfNXxgUAAAAACw097yvsEVrNnZ9_D8GLn0fXB4J&amp;co=aHR0cHM6Ly93d3cubm92YXlhZ2F6ZXRhLnJ1OjQ0Mw..&amp;hl=ru&amp;type=image&amp;v=r20171031153338&amp;theme=light&amp;size=normal&amp;cb=ge36y1lwlba1" width="50%" height="78" role="presentation" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 125px; height: 20px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div>-->
-                        </div>
-                    </div>
-                    <!--reCCAPTCHA-->
-
-
-                    <!--Enter - Reset-->
-                    <div class="form_item">
-                        <input type="submit" class="button" value="Отправить">
-                        <input type="reset" class="button" value="Очистить">
-                    </div>
-                    <!--Enter - Reset-->
-
-                </form>
             </div>
 
 

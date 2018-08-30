@@ -1,14 +1,15 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
+//require __DIR__ . '/../vendor/autoload.php';
+//require __DIR__ . '/../vendor/yiisoft/yii2/Yii.php';
 
-$config = require __DIR__ . '/../config/web.php';
+//$config = require __DIR__ . '/../config/web.php';
 
 //(new yii\web\Application($config))->run();
 
 require __DIR__ . '/../models/Vote.php';
-
+use yii\db;
+use yii\db\ActiveRecord;
 
 //use app\models\Vote;
 
@@ -19,7 +20,13 @@ if(intval($_POST["id"])>0 && intval($_POST["vote"])>0 ){
     $ans=intval($_POST["vote"]);
 
     //var_dump($connection);
-    //$model = $connection->createCommand("UPDATE  `core_votes` SET  `votes` = votes + 1 WHERE  `id` =$ans AND `pid`=$id");
+    $model = $connection->createCommand("SELECT * from  `core_votes` WHERE  `id` =$id AND `pid`=$ans");
+    $data = $model->queryAll();
+
+    var_dump($model);
+    var_dump($data);
+
+    //    $model = $connection->createCommand("UPDATE  `core_votes` SET  `votes` = votes + 1 WHERE  `id` =$ans AND `pid`=$id");
     //$data = $model->queryAll();
 
     if ($_COOKIE['voted']) {

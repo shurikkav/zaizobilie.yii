@@ -3957,28 +3957,35 @@ AppAsset::register($this);
 				<p class="more" style="display: block;"><a href="#" class="">Свернуть список</a></p>
       </footer>
     </article>
+
     <!--Предприятия-->
-    
-    
-		
-		
-		
-		<!--Голосование-->
+
+
+
+
+      <article class="aside_item vote wrap_bottom">
+          <header class="header_item">
+              <h4>Конкурс</h4>
+          </header>
+
+          <div class="public_item">
+              <div class="poll block">
+                  <?
+                  use app\components\CompetitionWidget;
+                  echo CompetitionWidget::widget();
+                  ?>
+              </div>
+          </div>
+      </article>
+
+
+
+
+      <!--Голосование-->
     <article class="aside_item vote wrap_bottom">
-    
       <header class="header_item">
         <h4>Голосование</h4>
-        <script type="text/javascript">
-            function pushVote(obj)
-            {var id = obj.find("input").val();
-             var val = obj.find("input[name=vote]:checked").val();
-             values = {id: id, vote: val};
-             var html = "";
-             $.ajax({url: "/?voted=1",type: "POST",data: values,context: document.body})
-                 .done(function(msg) {html = msg;});obj.html(html);}
-        </script>
       </header>
-      
       
       <div class="public_item">
           <div class="poll block">
@@ -3988,9 +3995,6 @@ AppAsset::register($this);
           ?>
           </div>
       </div>      
-      
-      
-    
     </article>
     <!--Голосование-->
 		

@@ -185,9 +185,7 @@ AppAsset::register($this);
                                             <!--Показать-скрыть пароль-->
 
                                             <input class="form_control" id="password" type="password" name="password" placeholder="Пароль" spellcheck="false" maxlength="20" required>
-                                            <!--
-                                            <input class="form_control" id="password" type="text" name="password" placeholder="Пароль" spellcheck="false" maxlength="20" required>
-                                            -->
+
                                         </div>
                                         <!--Password-->
 
@@ -285,89 +283,6 @@ AppAsset::register($this);
 <!--Authorisation Pop Up-->
 
 
-<!--Layout 768px--><!--Меню-->
-<div class="mobile" style="display: none;">
-    <!--Background-->
-    <div class="back_dark"></div>
-    <!--Background-->
-
-
-
-
-    <div class="header_mobile_menu_list wrap_left wrap_main">
-        <div class="button_right"><a title="Закрыть меню" href="#"><img src="/img/Icon_arrow_right.svg" alt="Закрыть меню"></a></div>
-        <ul>
-            <?php
-            NavBar::begin([
-                'brandLabel' => Yii::$app->name,
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
-                    Yii::$app->user->isGuest ? (
-                    ['label' => 'Login', 'url' => ['/site/login']]
-                    ) : (
-                        '<li>'
-                        . Html::beginForm(['/site/logout'], 'post')
-                        . Html::submitButton(
-                            'Logout (' . Yii::$app->user->identity->username . ')',
-                            ['class' => 'btn btn-link logout']
-                        )
-                        . Html::endForm()
-                        . '</li>'
-                    )
-                ],
-            ]);
-            NavBar::end();
-            ?>
-            <li class="send_mail"><a href="mailto:za.izobilie@yandex.ru" title="Написать письмо" target="_blank"></a></li>
-        </ul>
-
-        <!--Левое мобильное меню -->
-        <!--Скрыть-показать рубрики-->
-        <p class="more" style="display:block;"><a href="#" class="">Показать рубрики</a></p>
-        <p class="more" style="display:none;"><a href="#" class="">Скрыть рубрики</a></p>
-        <!--Скрыть-показать рубрики-->
-        <ul style="display: none;">
-            <li><a href="?module=articles&amp;action=list&amp;rubrics=2&amp;id=0">Спорт</a></li>
-            <li><a href="?module=articles&amp;action=list&amp;rubrics=11&amp;id=0">Общество</a></li>
-            <li><a href="?module=articles&amp;action=list&amp;rubrics=19&amp;id=0">Образование</a></li>
-            <li><a href="?module=articles&amp;action=list&amp;rubrics=21&amp;id=0">Экономика</a></li>
-            <li><a href="?module=articles&amp;action=list&amp;rubrics=23&amp;id=0">Политика</a></li>
-            <li><a href="?module=articles&amp;action=list&amp;rubrics=25&amp;id=0">Происшествия</a></li>
-        </ul>
-
-        <!--Левое мобильное меню -->
-    </div>
-</div>
-<!--/Layout 768px--><!--/Меню-->
-
-<!--Layout 320px--> <!--Поиск-->
-<div class="mobile" style="display:none;">
-    <!--Background-->
-    <div class="back_dark"></div>
-    <!--Background-->
-    <div class="header_mobile_search">
-        <div class="button_left"><a title="Закрыть поиск" href="#"><img src="/img/Icon_arrow_left.svg" alt="Закрыть поиск"></a></div>
-        <!--Поиск-->
-        <div class="search_mobile">
-            <form action="" method="get">
-                <input type="hidden" name="module" value="search">
-                <input type="text" name="query" class="search_text" placeholder="поиск по сайту" />
-                <input type="submit" value="" class="search_image" />
-            </form>
-        </div>
-        <!--Поиск-->
-    </div>
-</div>
-<!--Layout 320px-->
 <!--Поиск-->
 
 <!--Рекламное место 01 баннер 980x90-->
@@ -618,933 +533,14 @@ AppAsset::register($this);
     <div class="banner" style="display:none;">
        <?
         $banner1= new Banner();
-        echo $banner1->getBanner(1);
+       //echo $banner1->getBanner(1);
         ?>
     </div>
     <!--Рекламное место 01 баннер 980x60-->
 
-    <!-------------------------Мобильная версия статей на странице------------------------------->
-
-
-
-
-
-
-
-    <!--Главная колонка для мобильной 768px-->
-    <div class="main_mobile">
-
-        <div class="main_collumn wrap_bottom">
-
-            <!--Главная статья, колонка редактора-->
-            <!--Тема номера-->
-            <article class="sys_top_main theme">
-
-                <!--Header top-->
-                <header><h1>Тема номера</h1>
-                    <div id="ulissues" class="article_issues">
-                        <a href="index_article_list.html">Читать номер</span></a>
-                    </div>
-
-                </header>
-                <!--Header top-->
-
-
-
-                <div class="top_main">
-                    <!--Тема 01-->
-                    <article>
-
-                        <a href="index_article.html">
-                            <!--Image published -->
-                            <div class="item_image">
-                                <span class="image" style="background-image:url(/media/admin/image_user_pet_03.jpg);"><img src="/img/empty.png"></span>
-                            </div>
-                        </a>
-                        <!--Image published -->
-
-                        <div class="article_content">
-                            <a href="index_article.html">
-                                <!--Header published-->
-                                <h2>Областная сетевая акция «Мы – будущее региона»</h2>
-                                <!--Header published-->
-
-                                <!--Date published-->
-                                <p><time itemprop="datePublished" datetime="2014-10-08">2014-10-08</time></p>
-                                <!--Date published-->
-
-                                <!--Intro published -->
-                                <span class="intro"><p>28 февраля 2013 года 110 школ, 4500 активистов детских общественных объединений из 20 муниципальных образований Амурской области в возрасте от 12 до 17 лет приняли участие в областной сетевой акции «Мы - будущее региона».</p></span>
-                                <!--Intro published -->
-                            </a>
-
-                            <footer>
-                                <!--Статистика-->
-                                <div class="stat">
-
-                                    <!--Просмотры-->
-                                    <div class="view">
-                                        <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-                                        <div class="content wrap_right">896</div>
-                                    </div>
-                                    <!--Просмотры-->
-
-                                    <!--Комментарии-->
-                                    <div class="comment">
-                                        <a itemprop="index_article.html" href="index_article.html">
-                                            <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
-                                            <div class="content wrap_right">243</div>
-                                        </a>
-                                    </div>
-                                    <!--Комментарии-->
-
-                                </div>
-                                <!--Статистика-->
-                            </footer>
-                        </div>
-
-                    </article>
-                    <!--Тема 01-->
-                </div>
-
-
-            </article>
-            <!--Тема номера-->
-
-            <div class="white_wrap"> &nbsp;</div>
-
-            <!--Колонка редактора-->
-            <article class="sys_top_main right_redactor">
-                <div class="right_collumn">
-                    <!--<div class="right_collumn">-->
-
-                    <article class="aside_item">
-
-                        <header class="header_item">
-                            <h4>Колонка редактора</h4>
-                        </header>
-
-
-                        <!--Анонс редактора-->
-                        <div class="public_item">
-
-
-                            <article>
-
-                                <a href="index_article_redactor.html">
-                                    <!--Image published-->
-                                    <div class="item_image">
-                                        <span class="image" style="background-image:url(/media/10.jpg);"><img src="/img/empty.png"></span>
-                                    </div>
-
-                                    <!--Date published-->
-                                    <p><time itemprop="datePublished" datetime="2014-10-08">2014-10-08</time></p>
-
-
-                                    <!--Header published-->
-                                    <h2>Уважаемые читатели!</h2>
-
-                                    <!--Text published-->
-                                    <span class="intro"><p>Мы рады сообщить вам об открытии сайта газеты «За изобилие». Здесь вы узнаете свежие новости о всех аспектах жизни нашего района. Кроме того, у вас есть возможность дать оценку материалам газеты, задать вопросы и получить на них ответы. Посетителям сайта предоставится возможность посмотреть архив номеров газеты в РDF-формате, подписаться на электронную доставку свежего номера газеты, а также увидеть информацию, по тем или иным причинам не опубликованную в печатном номере газеты.</p></span>
-                                </a>
-
-                            </article>
-
-                        </div>
-                        <!--Анонс редактора-->
-
-                    </article>
-
-
-                </div>
-            </article>
-            <!--Колонка редактора-->
-            <!--Главная статья, колонка редактора-->
-
-
-        </div>
-
-    </div>
-    <!--Главная колонка для мобильной 768px-->
-    <!--Новости от Инфорос для мобильной 768px-->
-    <div class="main_mobile">
-
-        <div class="main_collumn wrap_bottom">
-            <!--Темы от Инфорос-->
-            <article class="sys_top_main">
-
-                <!--Header top-->
-                <header><h1>События</h1></header>
-                <!--Header top-->
-
-                <article>
-
-                    <!--Закладки новостей-->
-                    <div id="tabbed_box_1" class="tabbed_box wrap_right">
-                        <div class="tabbed_area">
-
-                            <ul class="tabs">
-                                <!--Header 1-->
-                                <li><a href="javascript:tabSwitch('tab_4', 'content_4');" id="tab_4" class="tab_active"><h3>В регионе</h3></a></li>
-                                <!--Header 2-->
-                                <li><a href="javascript:tabSwitch('tab_5', 'content_5');" id="tab_5"><h3>В стране</h3></a></li>
-                                <!--Header 3-->
-                                <li><a href="javascript:tabSwitch('tab_6', 'content_6');" id="tab_6"><h3>В мире</h3></a></li>
-                                <!--Header All-->
-                                <li class="tab_all"><a href="index_news_list.html"><h3>Все</h3></a></li>
-                            </ul>
-
-
-
-                            <!--В Регионе - Content 1-->
-                            <div id="content_4" class="content">
-
-                                <!--Анонс Тема 01-->
-                                <div class="top_main_item">
-
-                                    <div class="public_item">
-
-                                        <article>
-
-                                            <a href="index_news.html">
-                                                <div class="item_image">
-                                                    <span class="image" style="background-image:url(/media/DS_57L.jpg);"><img src="/img/empty.png"></span>
-                                                </div>
-
-
-                                                <!--Date published-->
-                                                <p><time itemprop="datePublished" datetime="2014-10-08">2017-10-02</time></p>
-
-
-                                                <!--Header published-->
-                                                <h2>В Хабаровске прошел VIII Международный форум «Интеграция соотечественников»</h2>
-
-                                                <!--Text published-->
-                                                <span class="intro"><p>Якутское УФАС России привлекло к ответственности владельца интернет издания «Светский Якутск» к административной ответственности за распространение на сайте издания рекламы алкогольной продукции.</p></span>
-                                            </a>
-
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <!--Анонс Тема 01-->
-
-
-
-                                <!--Анонс Тема 02-->
-                                <div class="top_main_item">
-
-                                    <div class="public_item">
-
-                                        <article>
-
-                                            <a href="index_news.html">
-                                                <div class="item_image">
-                              <span class="image" style="background-image:url(/media/admin/image_user_avatar_04.jpg);">
-                              <img src="/img/empty.png"></span>
-                                                </div>
-
-
-                                                <!--Date published-->
-                                                <p><time itemprop="datePublished" datetime="2014-10-08">2017-10-02</time></p>
-
-
-                                                <!--Header published-->
-                                                <h2>Неоднозначный бабувизм: предпосылки и развитие</h2>
-
-                                                <!--Text published-->
-                                                <span class="intro"><p>Можно предположить, что смысл жизни может быть получен из опыта. Сомнение, как следует из вышесказанного, амбивалентно заполняет непредвиденный интеллект. Предмет деятельности непредвзято раскладывает на элементы сложный конфликт.</p></span>
-                                            </a>
-
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <!--Анонс Тема 02-->
-
-
-
-                                <!--Анонс Тема 03-->
-                                <div class="top_main_item">
-
-                                    <div class="public_item">
-
-                                        <article>
-
-                                            <a href="index_news.html">
-                                                <div class="item_image">
-                              <span class="image" style="background-image:url(/media/admin/image_user_avatar_03.jpg);">
-                              <img src="/img/empty.png"><img src=""></span>
-                                                </div>
-
-
-                                                <!--Date published-->
-                                                <p><time itemprop="datePublished" datetime="2014-10-08">2017-10-02</time></p>
-
-
-                                                <!--Header published-->
-                                                <h2>Непредвиденный структурализм в XXI веке</h2>
-
-                                                <!--Text published-->
-                                                <span class="intro"><p>Герменевтика методологически рассматривается напряженный дедуктивный метод. Освобождение, по определению, выводит гений. По своим философским взглядам Дезами был материалистом и атеистом, последователем Гельвеция, однако исчисление предикатов ментально подрывает мир. Аксиома силлогизма осмысляет язык образов.</p></span>
-                                            </a>
-
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <!--Анонс Тема 03-->
-                            </div>
-                            <!--В Регионе - Content 1-->
-
-
-
-
-                            <!--В Стране - Content 2-->
-                            <div id="content_5" class="content">
-                                <!--Анонс Тема 01-->
-                                <div class="top_main_item">
-
-                                    <div class="public_item">
-
-                                        <article>
-
-                                            <a href="index_news.html">
-                                                <div class="item_image">
-                                                    <span class="image" style="background-image:url(/media/admin/lyji.jpg);"><img src="/img/empty.png"></span>
-                                                </div>
-
-
-                                                <!--Date published-->
-                                                <p><time itemprop="datePublished" datetime="2014-10-08">2017-10-02</time></p>
-
-
-                                                <!--Header published-->
-                                                <h2>Положительный полином в XXI веке</h2>
-
-                                                <!--Text published-->
-                                                <span class="intro"><p>Сумма ряда, исключая очевидный случай, определяет натуральный логарифм. Целое число изменяет критерий интегрируемости. Расходящийся ряд, исключая очевидный случай, проецирует сходящийся ряд.</p></span>
-                                            </a>
-
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <!--Анонс Тема 01-->
-
-
-
-                                <!--Анонс Тема 02-->
-                                <div class="top_main_item">
-
-
-                                    <div class="public_item">
-
-                                        <article>
-
-                                            <a href="index_news.html">
-                                                <div class="item_image">
-                              <span class="image" style="background-image:url(/media/admin/image_user_pet_01.jpg);">
-                              <img src="/img/empty.png"></span>
-                                                </div>
-
-
-                                                <!--Date published-->
-                                                <p><time itemprop="datePublished" datetime="2014-10-08">2017-10-02</time></p>
-
-
-                                                <!--Header published-->
-                                                <h2>Прямоугольная матрица как предел функции</h2>
-
-                                                <!--Text published-->
-                                                <span class="intro"><p>Пустое подмножество порождает отрицательный определитель системы линейных уравнений. Векторное поле поразительно. Непрерывная функция, очевидно, развивает натуральный логарифм, что неудивительно. Интеграл по поверхности проецирует отрицательный интеграл Фурье.</p></span>
-                                            </a>
-
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <!--Анонс Тема 02-->
-
-
-                                <!--Анонс Тема 03-->
-                                <div class="top_main_item">
-
-
-                                    <div class="public_item">
-
-                                        <article>
-
-                                            <a href="index_news.html">
-                                                <div class="item_image">
-                              <span class="image" style="background-image:url(/media/admin/image_user_pet_02.jpg);">
-                              <img src="/img/empty.png"><img src=""></span>
-                                                </div>
-
-
-                                                <!--Date published-->
-                                                <p><time itemprop="datePublished" datetime="2014-10-08">2017-10-02</time></p>
-
-
-                                                <!--Header published-->
-                                                <h2>Действительный предел функции в XXI веке</h2>
-
-                                                <!--Text published-->
-                                                <span class="intro"><p>Геометрическая прогрессия, как следует из вышесказанного, определяет неопровержимый интеграл от функции, имеющий конечный разрыв. Интеграл Пуассона, не вдаваясь в подробности, изящно развивает математический анализ. То, что написано на этой странице неправда! Следовательно: интегрирование по частям категорически определяет равновероятный интеграл по бесконечной области.</p></span>
-                                            </a>
-
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <!--Анонс Тема 03-->
-                            </div>
-                            <!--В Стране - Content 2-->
-
-
-
-
-                            <!--В Мире - Content 3-->
-                            <div id="content_6" class="content">
-                                <!--В Мире Тема 01-->
-                                <div class="top_main_item">
-
-                                    <!--Анонс Тема 01-->
-                                    <div class="public_item">
-
-                                        <article>
-
-                                            <a href="index_news.html">
-                                                <div class="item_image">
-                                                    <span class="image" style="background-image:url(/media/admin/image_user_pet_03.jpg);"><img src="/img/empty.png"></span>
-                                                </div>
-
-
-                                                <!--Date published-->
-                                                <p><time itemprop="datePublished" datetime="2014-10-08">2017-10-02</time></p>
-
-
-                                                <!--Header published-->
-                                                <h2>Огибающая семейства прямых как нормаль к поверхности</h2>
-
-                                                <!--Text published-->
-                                                <span class="intro"><p>Нормальное распределение, как следует из вышесказанного, усиливает возрастающий интеграл от функции, имеющий конечный разрыв. Замкнутое множество монотонно. Связное множество естественно нейтрализует невероятный интеграл по поверхности, откуда следует доказываемое равенство. Натуральный логарифм осмысленно проецирует интеграл по бесконечной области.</p></span>
-                                            </a>
-
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <!--Анонс Тема 01-->
-
-
-
-                                <!--Анонс Тема 02-->
-                                <div class="top_main_item">
-
-                                    <div class="public_item">
-
-                                        <article>
-
-                                            <a href="index_news.html">
-                                                <div class="item_image">
-                              <span class="image" style="background-image:url(/media/admin/image_user_pet_04.jpg);">
-                              <img src="/img/empty.png"></span>
-                                                </div>
-
-
-                                                <!--Date published-->
-                                                <p><time itemprop="datePublished" datetime="2014-10-08">2017-10-02</time></p>
-
-
-                                                <!--Header published-->
-                                                <h2>Почему доступна социализация?</h2>
-
-                                                <!--Text published-->
-                                                <span class="intro"><p>Как отмечает Жан Пиаже, реакция иллюстрирует культурный тест, следовательно основной закон психофизики: ощущение изменяется пропорционально логарифму раздражителя . В заключении добавлю, ассоциация вызывает эмпирический гомеостаз. Филогенез, как бы это ни казалось парадоксальным, отражает гомеостаз.</p></span>
-                                            </a>
-
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <!--Анонс Тема 02-->
-
-
-                                <!--Анонс Тема 03-->
-                                <div class="top_main_item">
-
-                                    <!--Анонс Тема 02-->
-                                    <div class="public_item">
-
-                                        <article>
-
-                                            <a href="index_news.html">
-                                                <div class="item_image">
-                              <span class="image" style="background-image:url(/media/admin/image_user_pet_05.jpg);">
-                              <img src="/img/empty.png"><img src=""></span>
-                                                </div>
-
-
-                                                <!--Date published-->
-                                                <p><time itemprop="datePublished" datetime="2014-10-08">2017-10-02</time></p>
-
-
-                                                <!--Header published-->
-                                                <h2>Сексуальный кризис: фрустрация или бессознательное?</h2>
-
-                                                <!--Text published-->
-                                                <span class="intro"><p>Проекция отчуждает сублимированный комплекс. Восприятие одинаково отталкивает ролевой контраст, в полном соответствии с основными законами развития человека. Филогенез отталкивает девиантный закон. Архетип, конечно, точно отчуждает импульс.</p></span>
-                                            </a>
-
-                                        </article>
-
-                                    </div>
-                                </div>
-                                <!--Анонс Тема 03-->
-                            </div>
-                            <!--В Мире - Content 3-->
-
-
-
-
-                        </div>
-
-                    </div>
-
-
-                </article>
-
-
-            </article>
-            <!--Темы от Инфорос-->
-
-        </div>
-
-    </div>
-    <!--Новости от Инфорос для мобильной 768px-->
-    <!--Средняя колонка для мобильной 768px-->
-    <div class="middle_mobile">
-        <div class="middle_collumn">
-            <article class="sys_middle_collumn">
-
-                <!--Рубрика 01-->
-                <div class="top_main_middle">
-
-                    <article>
-
-
-                        <!--Image published -->
-                        <div class="item_image">
-
-
-                            <!--Header Рубрика-->
-                            <a href="?module=articles&amp;action=view&amp;id=1">
-                                <header><h3>Спорт</h3></header>
-                            </a>
-                            <!--Header Рубрика-->
-
-
-                            <a href="?module=articles&amp;action=view&amp;id=97">
-                                <span class="image" style="background-image:url(/media/DS_87L.jpg);"><img src="/img/empty.png"></span>
-                            </a>
-                        </div>
-
-                        <!--Image published -->
-
-                        <div class="article_content">
-                            <a href="?module=articles&amp;action=view&amp;id=97">
-                                <!--Header published-->
-                                <h2>Областная сетевая акция «Мы – будущее региона»</h2>
-                                <!--Header published-->
-
-                                <!--Date published-->
-                                <p><time itemprop="datePublished" datetime="2014-10-08">2014-10-08</time></p>
-                                <!--Date published-->
-
-                                <!--Intro published -->
-                                <span class="intro"><p>28 февраля 2013 года 110 школ, 4500 активистов детских общественных объединений из 20 муниципальных образований Амурской области в возрасте от 12 до 17 лет приняли участие в областной сетевой акции «Мы - будущее региона».</p></span>
-                                <!--Intro published -->
-                            </a>
-
-                            <footer>
-                                <!--Статистика-->
-                                <div class="stat">
-
-                                    <!--Просмотры-->
-                                    <div class="view">
-                                        <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-                                        <div class="content wrap_right">896</div>
-                                    </div>
-                                    <!--Просмотры-->
-
-                                    <!--Комментарии-->
-                                    <div class="comment">
-                                        <a itemprop="discussionUrl" href="?comments=1">
-                                            <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
-                                            <div class="content wrap_right">243</div>
-                                        </a>
-                                    </div>
-                                    <!--Комментарии-->
-
-                                </div>
-                                <!--Статистика-->
-                            </footer>
-                        </div>
-
-                    </article>
-
-
-                </div>
-                <!--Рубрика 01-->
-
-
-
-
-
-
-                <!--Рекламное место 05 баннер 468_60-->
-                <div class="banner wrap_bottom" style="display:none;">
-                    <? $banner5= new Banner();
-                    echo $banner5->getBanner(5);
-                    ?>
-                </div>
-                <!--Рекламное место 05 баннер 468_60-->
-
-
-
-
-
-                <!--Рубрика 02-->
-                <div class="top_main_middle">
-
-                    <article>
-
-                        <a href="?module=articles&amp;action=view&amp;id=97">
-                            <!--Image published -->
-                            <div class="item_image">
-                                <!--Header Рубрика-->
-                                <header><h3>Общество</h3></header>
-                                <!--Header Рубрика-->
-                                <span class="image" style="background-image:url(/media/DS_94L.jpg);"><img src="/img/empty.png"></span>
-                            </div>
-                        </a>
-                        <!--Image published -->
-
-                        <div class="article_content">
-                            <a href="?module=articles&amp;action=view&amp;id=97">
-                                <!--Header published-->
-                                <h2>Областная сетевая акция «Мы – будущее региона»</h2>
-                                <!--Header published-->
-
-                                <!--Date published-->
-                                <p><time itemprop="datePublished" datetime="2014-10-08">2014-10-08</time></p>
-                                <!--Date published-->
-
-                                <!--Intro published -->
-                                <span class="intro"><p>28 февраля 2013 года 110 школ, 4500 активистов детских общественных объединений из 20 муниципальных образований Амурской области в возрасте от 12 до 17 лет приняли участие в областной сетевой акции «Мы - будущее региона».</p></span>
-                                <!--Intro published -->
-                            </a>
-
-                            <footer>
-                                <!--Статистика-->
-                                <div class="stat">
-
-                                    <!--Просмотры-->
-                                    <div class="view">
-                                        <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-                                        <div class="content wrap_right">896</div>
-                                    </div>
-                                    <!--Просмотры-->
-
-                                    <!--Комментарии-->
-                                    <div class="comment">
-                                        <a itemprop="discussionUrl" href="?comments=1">
-                                            <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
-                                            <div class="content wrap_right">243</div>
-                                        </a>
-                                    </div>
-                                    <!--Комментарии-->
-
-                                </div>
-                                <!--Статистика-->
-                            </footer>
-                        </div>
-
-                    </article>
-
-
-                </div>
-                <!--Рубрика 02-->
-
-
-
-
-
-
-                <!--Рекламное место 06 баннер 468_60-->
-                <div class="banner wrap_bottom" style="display:none;">
-                    <? $banner6= new Banner();
-                    echo $banner6->getBanner(6);
-                    ?>
-
-                </div>
-                <!--Рекламное место 06 баннер 468_60-->
-
-
-
-
-
-
-
-                <!--Рубрика 03-->
-                <div class="top_main_middle">
-
-                    <article>
-
-                        <a href="?module=articles&amp;action=view&amp;id=97">
-                            <!--Image published -->
-                            <div class="item_image">
-                                <!--Header Рубрика-->
-                                <header><h3>Происшествия</h3></header>
-                                <!--Header Рубрика-->
-                                <span class="image" style="background-image:url(/media/0640023.jpg);"><img src="/img/empty.png"></span>
-                            </div>
-                        </a>
-                        <!--Image published -->
-
-                        <div class="article_content">
-                            <a href="?module=articles&amp;action=view&amp;id=97">
-                                <!--Header published-->
-                                <h2>Областная сетевая акция «Мы – будущее региона»</h2>
-                                <!--Header published-->
-
-                                <!--Date published-->
-                                <p><time itemprop="datePublished" datetime="2014-10-08">2014-10-08</time></p>
-                                <!--Date published-->
-
-                                <!--Intro published -->
-                                <span class="intro"><p>28 февраля 2013 года 110 школ, 4500 активистов детских общественных объединений из 20 муниципальных образований Амурской области в возрасте от 12 до 17 лет приняли участие в областной сетевой акции «Мы - будущее региона».</p></span>
-                                <!--Intro published -->
-                            </a>
-
-                            <footer>
-                                <!--Статистика-->
-                                <div class="stat">
-
-                                    <!--Просмотры-->
-                                    <div class="view">
-                                        <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-                                        <div class="content wrap_right">896</div>
-                                    </div>
-                                    <!--Просмотры-->
-
-                                    <!--Комментарии-->
-                                    <div class="comment">
-                                        <a itemprop="discussionUrl" href="?comments=1">
-                                            <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
-                                            <div class="content wrap_right">243</div>
-                                        </a>
-                                    </div>
-                                    <!--Комментарии-->
-
-                                </div>
-                                <!--Статистика-->
-                            </footer>
-                        </div>
-
-                    </article>
-
-
-                </div>
-                <!--Рубрика 03-->
-
-
-
-
-
-                <!--Рекламное место 07 баннер 468_60-->
-                <div class="banner wrap_bottom" style="display:none;">
-                    <? $banner7= new Banner();
-                    echo $banner7->getBanner(7);
-                    ?>
-
-                </div>
-                <!--Рекламное место 07 баннер 468_60-->
-
-
-
-
-
-
-                <!--Рубрика 04-->
-                <div class="top_main_middle">
-
-                    <article>
-
-                        <a href="?module=articles&amp;action=view&amp;id=97">
-                            <!--Image published -->
-                            <div class="item_image">
-                                <!--Header Рубрика-->
-                                <header><h3>Наука</h3></header>
-                                <!--Header Рубрика-->
-                                <span class="image" style="background-image:url(/media/0640011.jpg);"><img src="/img/empty.png"></span>
-                            </div>
-                        </a>
-                        <!--Image published -->
-
-                        <div class="article_content">
-                            <a href="?module=articles&amp;action=view&amp;id=97">
-                                <!--Header published-->
-                                <h2>Областная сетевая акция «Мы – будущее региона»</h2>
-                                <!--Header published-->
-
-                                <!--Date published-->
-                                <p><time itemprop="datePublished" datetime="2014-10-08">2014-10-08</time></p>
-                                <!--Date published-->
-
-                                <!--Intro published -->
-                                <span class="intro"><p>28 февраля 2013 года 110 школ, 4500 активистов детских общественных объединений из 20 муниципальных образований Амурской области в возрасте от 12 до 17 лет приняли участие в областной сетевой акции «Мы - будущее региона».</p></span>
-                                <!--Intro published -->
-                            </a>
-
-                            <footer>
-                                <!--Статистика-->
-                                <div class="stat">
-
-                                    <!--Просмотры-->
-                                    <div class="view">
-                                        <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-                                        <div class="content wrap_right">896</div>
-                                    </div>
-                                    <!--Просмотры-->
-
-                                    <!--Комментарии-->
-                                    <div class="comment">
-                                        <a itemprop="discussionUrl" href="?comments=1">
-                                            <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
-                                            <div class="content wrap_right">243</div>
-                                        </a>
-                                    </div>
-                                    <!--Комментарии-->
-
-                                </div>
-                                <!--Статистика-->
-                            </footer>
-                        </div>
-
-                    </article>
-
-
-                </div>
-                <!--Рубрика 04-->
-
-
-
-
-
-
-                <!--Рекламное место 08 баннер 468_60-->
-                <div class="banner wrap_bottom" style="display:none;">
-                    <? $banner8= new Banner();
-                    echo $banner8->getBanner(8);
-                    ?>
-                </div>
-                <!--Рекламное место 08 баннер 468_60-->
-
-
-
-
-
-
-                <!--Рубрика 05-->
-                <div class="top_main_middle">
-
-                    <article>
-
-                        <a href="?module=articles&amp;action=view&amp;id=97">
-                            <!--Image published -->
-                            <div class="item_image">
-                                <!--Header Рубрика-->
-                                <header><h3>Политика</h3></header>
-                                <!--Header Рубрика-->
-                                <span class="image" style="background-image:url(/media/DS_15L.jpg);"><img src="/img/empty.png"></span>
-                            </div>
-                        </a>
-                        <!--Image published -->
-
-                        <div class="article_content">
-                            <a href="?module=articles&amp;action=view&amp;id=97">
-                                <!--Header published-->
-                                <h2>Областная сетевая акция «Мы – будущее региона»</h2>
-                                <!--Header published-->
-
-                                <!--Date published-->
-                                <p><time itemprop="datePublished" datetime="2014-10-08">2014-10-08</time></p>
-                                <!--Date published-->
-
-                                <!--Intro published -->
-                                <span class="intro"><p>28 февраля 2013 года 110 школ, 4500 активистов детских общественных объединений из 20 муниципальных образований Амурской области в возрасте от 12 до 17 лет приняли участие в областной сетевой акции «Мы - будущее региона».</p></span>
-                                <!--Intro published -->
-                            </a>
-
-                            <footer>
-                                <!--Статистика-->
-                                <div class="stat">
-
-                                    <!--Просмотры-->
-                                    <div class="view">
-                                        <div class="icon"><img src="/img/Icon_view.svg" alt="Поросмотров:"></div>
-                                        <div class="content wrap_right">896</div>
-                                    </div>
-                                    <!--Просмотры-->
-
-                                    <!--Комментарии-->
-                                    <div class="comment">
-                                        <a itemprop="discussionUrl" href="?comments=1">
-                                            <div class="icon"><img src="/img/Icon_comment.svg" alt="Комментариев:"></div>
-                                            <div class="content wrap_right">243</div>
-                                        </a>
-                                    </div>
-                                    <!--Комментарии-->
-
-                                </div>
-                                <!--Статистика-->
-                            </footer>
-                        </div>
-
-                    </article>
-
-
-                </div>
-                <!--Рубрика 05-->
-
-
-
-
-
-
-            </article>
-
-        </div>
-    </div>
-    <!--Средняя колонка для мобильной 768px-->
-
     <!--------------------Десктопная версия статей на странице------------------->
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--Левая колонка-->
+   <!--Левая колонка-->
     <aside>
 
         <div class="left_collumn">
@@ -1556,16 +552,13 @@ AppAsset::register($this);
             <!--Левое меню -->
 
 
-
-
-
             <!--Архив-->
             <article class="aside_item calendar wrap_bottom">
 
                 <header class="header_item">
                     <h4>Архив</h4>
                 </header>
-                <div class="block">
+                <div class="dateblock">
                     <div class="datepicker"></div>
                 </div>
 
@@ -1576,7 +569,7 @@ AppAsset::register($this);
             <!--Рекламное место 08 баннер 234_60-->
             <div class="banner wrap_bottom" style="display:block;">
                 <? $banner8= new Banner();
-                echo $banner8->getBanner(8);
+                //echo $banner8->getBanner(8);
                 ?>
             </div>
             <!--Рекламное место 08 баннер 234_60-->
@@ -1591,8 +584,26 @@ AppAsset::register($this);
             ?>
             <!--/Анонсы новостей-->
 
+            <!--Анонсы Писем-->
+            <?
+            use app\components\LettersBlock;
+            echo LettersBlock::widget();
+            ?>
+            <!--/Анонсы писем-->
 
+            <!--Анекдоты-->
+            <?
+            use app\components\JokeBlock;
+            echo JokeBlock::widget();
+            ?>
+            <!--/Анекдоты-->
 
+            <!--Поздравления-->
+            <?
+            use app\components\CongratulationBlock;
+            echo CongratulationBlock::widget();
+            ?>
+            <!--/Поздравления-->
 
             <!--Подписка-->
             <div class="podpiska wrap_bottom">
@@ -1666,7 +677,8 @@ AppAsset::register($this);
         <div class="main_collumn top_theme wrap_bottom">
             <!--Главная статья, колонка редактора-->
             <!--Тема номера-->
-            <?= $content ?>
+            <?= $content;
+            ?>
             <!--/Тема номера-->
 
             <div class="white_wrap"> &nbsp;</div>
@@ -2156,39 +1168,21 @@ AppAsset::register($this);
                     [BANNER_9]
                 </div>
                 <!--Рекламное место 09 баннер 468_60-->
-
-
-                <!--Одной строкой-->
-                <div class="top_main_middle top_articles" id="one-string">
-
-                    <!--Header Топ статей-->
-                    <header><h3>Одной строкой</h3></header>
-                    <!--Header Топ статей-->
-
-
-
-                    <ul class="jcarousel-skin-tango" data-visible="1">
-                        <li><span class="h_2 name"><h2>Покупайте в Колпне!</h2></span></li>
-                        <li><span class="h_2 name"><h2>Покупайте все Орловское!</h2></span></li>
-                        <li><span class="h_2 name"><h2>Покупайте российское!</h2></span></li>
-                        <li><span class="h_2 name"><h2>Заместителем главы администрации назначен Евгений Николаевич Астапов</h2></span></li>
-                        <li><span class="h_2 name"><h2>По итогам зрительского голосования на конкурсе Евровидение-2016 в Стокгольме победителем стал Сергей Лазарев</h2></span></li>
-                        <li><span class="h_2 name"><h2>Заместителем главы администрации по социальным вопросам назначена Наталья Александровна Строганова</h2></span></li>
-                        <li><span class="h_2 name"><h2>Председателем Совета ветеранов избран Валерий Николаевич Пнюшков</h2>
-	</span></li>
-                        <li><span class="h_2 name"><h2>Главой Озёрского городского округа депутаты Совета единогласно избрали В.В. Никонорова</h2></span></li>
-                        <li><span class="h_2 name"><h2>17 декабря МФЦ - многофункциональному центру исполнился год</h2></span></li>
-                    </ul>
+<!-- фраза дня -->
+<?
+use app\components\PhraseOfDayBlock;
+echo PhraseOfDayBlock::widget();
+?>
+<!-- /фраза дня -->
 
 
 
-
-
-                </div>
-                <!--Одной строкой-->
-
-
-
+<!-- Одной строкой -->
+                <?
+                use app\components\OneLineBlock;
+                echo OneLineBlock::widget();
+                ?>
+<!-- / Одной строкой -->
 
 
 
@@ -2243,6 +1237,12 @@ AppAsset::register($this);
             <!--Рекламное место 11 баннер 234_60-->
 
             <!--Анонсы объявлений-->
+
+            <?
+            use app\components\AnnouncementWidget;
+            echo AnnouncementWidget::widget();
+            ?>
+
             <article class="wrap_bottom">
                 <header class="header_item">
                     <h4>Объявления</h4><a href="index_board_list.html" class="see_all">Все</a>
@@ -2322,6 +1322,24 @@ AppAsset::register($this);
 
 
 
+            <!--Конкурс-->
+            <article class="aside_item vote wrap_bottom">
+                <header class="header_item">
+                    <h4>Конкурс</h4>
+                </header>
+
+                <div class="public_item">
+                    <div class="poll block">
+                        <?
+                        use app\components\CompetitionWidget;
+                        echo CompetitionWidget::widget();
+                        ?>
+                    </div>
+                </div>
+
+            </article>
+            <!--/Конкурс-->
+
 
 
             <!--Голосование-->
@@ -2348,7 +1366,7 @@ AppAsset::register($this);
             <article class="aside_item wrap_bottom">
                     <?
                     use app\components\QuestionAnswer;
-                    echo QuestionAnswer::widget(array("limit"=>"3"));
+                    //echo QuestionAnswer::widget(array("limit"=>"3"));
                     ?>
 
             </article>

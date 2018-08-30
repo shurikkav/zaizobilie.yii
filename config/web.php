@@ -41,7 +41,7 @@ $config = [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.google.com',
                 'username' => 'cameshopru@gmail.com',
-                'password' => 'K12a02v80',
+                'password' => '',
                 'port' => '587',
             ],*/
 
@@ -82,6 +82,18 @@ $config = [
                 'subscibe/edit'=>'subscibe/edit',
                 'subscibe/delete'=>'subscibe/delete',
                 'subscibe/activation'=>'subscibe/activation',
+                'letters/index'=>'letters/index',
+                'letters/page/<page:\d+>/'=>'letters/index',
+                'letters/view/<id:\d+>/'=>'letters/view',
+                'congratulation/index'=>'congratulation/index',
+                'congratulation/page/<page:\d+>/'=>'congratulation/index',
+                'congratulation/view/<id:\d+>/'=>'congratulation/view',
+                'joke/index'=>'joke/index',
+                'joke/page/<page:\d+>/'=>'joke/index',
+                'vote/index'=>'vote/index',
+                'vote/result/<id:\d+>/'=>'vote/result/',
+                'competition/index'=>'competition/index',
+                'competition/result/<id:\d+>/'=>'competition/result/',
             ],
         ],
         ''
